@@ -3,12 +3,17 @@ package ch.bzz.smartcredit.model;
 import java.util.List;
 
 public class Kunde {
+
     private String kundeUUID;
     private List<KKarte> kartenListe;
     private String vorName;
     private String nachName;
-    private Integer alter;
+    private int alter;
 
+
+
+
+    //-------------Getter und Setter----------------//
     public String getKundeUUID() {
         return kundeUUID;
     }
@@ -25,7 +30,7 @@ public class Kunde {
         return nachName;
     }
 
-    public Integer getAlter() {
+    public int getAlter() {
         return alter;
     }
 
@@ -45,7 +50,7 @@ public class Kunde {
         this.nachName = nachName;
     }
 
-    public void setAlter(Integer alter) {
+    public void setAlter(int alter) {
         this.alter = alter;
     }
 }

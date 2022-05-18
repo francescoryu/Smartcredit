@@ -5,6 +5,8 @@ public class KKarte {
     private String institut;
     private String kartenNummer;
 
+
+    //-------------Getter und Setter----------------//
     public String getKKarteUUID() {
         return KKarteUUID;
     }
