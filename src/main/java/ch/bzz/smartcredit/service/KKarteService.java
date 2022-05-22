@@ -1,5 +1,4 @@
 package ch.bzz.smartcredit.service;
-
 import ch.bzz.smartcredit.data.DataHandler;
 import ch.bzz.smartcredit.model.KKarte;
 
@@ -32,10 +31,17 @@ public class KKarteService {
             @QueryParam("uuid") String kkarteUUID
     ) {
         KKarte kkarte = DataHandler.getInstance().readKKarteByUUID(kkarteUUID);
-        return Response
-                .status(200)
-                .entity(kkarte)
-                .build();
+        if (kkarte == null) {
+            return Response
+                    .status(404)
+                    .build();
+        }
+        else {
+            return Response
+                    .status(200)
+                    .entity(kkarte)
+                    .build();
+        }
     }
 
 }

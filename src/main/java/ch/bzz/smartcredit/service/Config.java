@@ -32,6 +32,7 @@ public class Config extends Application {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(KKarteService.class);
         providers.add(TestService.class);
+        providers.add(KundeService.class);
         return providers;
     }
 

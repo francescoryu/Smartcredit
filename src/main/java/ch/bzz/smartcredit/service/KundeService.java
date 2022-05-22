@@ -32,10 +32,17 @@ public class KundeService {
             @QueryParam("uuid") String kundeUUID
     ) {
         Kunde kunde = DataHandler.getInstance().readKundeByUUID(kundeUUID);
-        return Response
-                .status(200)
-                .entity(kunde)
-                .build();
+        if (kunde == null) {
+            return Response
+                    .status(404)
+                    .build();
+        }
+        else {
+            return Response
+                    .status(200)
+                    .entity(kunde)
+                    .build();
+        }
     }
 
 }

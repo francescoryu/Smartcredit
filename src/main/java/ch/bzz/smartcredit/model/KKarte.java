@@ -1,14 +1,22 @@
 package ch.bzz.smartcredit.model;
 
 public class KKarte {
-    private String KKarteUUID;
+    private String kkarteUUID;
     private String institut;
     private String kartenNummer;
+
+    public KKarte() {
+
+    }
+
+    public KKarte(String kkarteUUID, String institut, String kartenNummer) {
+
+    }
 
 
     //-------------Getter und Setter----------------//
     public String getKKarteUUID() {
-        return KKarteUUID;
+        return kkarteUUID;
     }
 
     public String getInstitut() {
@@ -20,7 +28,7 @@ public class KKarte {
     }
 
     public void setKKarteUUID(String KKarteUUID) {
-        this.KKarteUUID = KKarteUUID;
+        this.kkarteUUID = KKarteUUID;
     }
 
     public void setInstitut(String institut) {
