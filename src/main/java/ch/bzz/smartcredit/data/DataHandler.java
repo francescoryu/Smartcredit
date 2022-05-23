@@ -1,5 +1,4 @@
 package ch.bzz.smartcredit.data;
-
 import ch.bzz.smartcredit.model.KKarte;
 import ch.bzz.smartcredit.model.Kunde;
 import ch.bzz.smartcredit.service.Config;
@@ -12,14 +11,17 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @autor : Francesco Ryu
+ * @date : 23.05.2022
+ * @Version : 3.0
+ */
+
 public class DataHandler {
     private static DataHandler instance = null;
     private List<KKarte> kKarteList;
     private List<Kunde> kundeList;
 
-    /**
-     * private constructor defeats instantiation
-     */
     private DataHandler() {
         setKundeList(new ArrayList<>());
         readKundeJSON();
@@ -33,9 +35,20 @@ public class DataHandler {
         return instance;
     }
 
+    /**
+     * Liest alle KKarten
+     * @return KKartenliste
+     */
+
     public List<KKarte> readAllKKarten() {
         return getKKarteList();
     }
+
+    /**
+     * Liest alle KKarten anhand der UUID
+     * @param kkarteUUID
+     * @return KKarte
+     */
 
     public KKarte readKKarteByUUID(String kkarteUUID) {
         KKarte kKarte = null;
@@ -53,9 +66,9 @@ public class DataHandler {
     }
 
     /**
-     * reads a publisher by its uuid
+     * Liest Kunde anhand der UUID
      * @param kundeUUID
-     * @return the Publisher (null=not found)
+     * @return Kunde (null = nicht gefunden)
      */
     public Kunde readKundeByUUID(String kundeUUID) {
         Kunde kunde = null;
@@ -68,7 +81,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the books from the JSON-file
+     * liest die KKarten vom JSON-file
      */
     private void readKKarteJSON() {
         try {
@@ -87,7 +100,7 @@ public class DataHandler {
     }
 
     /**
-     * reads the publishers from the JSON-file
+     * liest den Kunden anhand vom JSON-file
      */
     private void readKundeJSON() {
         try {
@@ -106,36 +119,36 @@ public class DataHandler {
         }
     }
     /**
-     * gets bookList
+     * get KKarteList
      *
-     * @return value of bookList
+     * @return Wert der KKartenliste
      */
     private List<KKarte> getKKarteList() {
         return kKarteList;
     }
 
     /**
-     * sets bookList
+     * sets KKarteList
      *
-     * @param kKarteList the value to set
+     * @param kKarteList den Wert
      */
     private void setKKarteList(List<KKarte> kKarteList) {
         this.kKarteList = kKarteList;
     }
 
     /**
-     * gets publisherList
+     * gets KundeList
      *
-     * @return value of publisherList
+     * @return Wert der KundeList
      */
     private List<Kunde> getKundeList() {
         return kundeList;
     }
 
     /**
-     * sets publisherList
+     * sets KundeList
      *
-     * @param kundeList the value to set
+     * @param kundeList den Wert
      */
     private void setKundeList(List<Kunde> kundeList) {
         this.kundeList = kundeList;

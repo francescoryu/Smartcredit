@@ -10,9 +10,19 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * @autor : Francesco Ryu
+ * @date : 23.05.2022
+ * @Version : 2.0
+ */
+
+/**
+ * Auflistung der Karten
+ * @return Response
+ */
+
 @Path("kkarte")
 public class KKarteService {
-
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -24,6 +34,13 @@ public class KKarteService {
                 .build();
 
     }
+
+    /**
+     * Liest die Karte mit der UUID
+     * @param kkarteUUID
+     * @return Response
+     */
+
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

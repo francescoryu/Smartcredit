@@ -11,6 +11,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * @autor : Francesco Ryu
+ * @date : 23.05.2022
+ * @Version : 3.0
+ */
+
+/**
+ * Auflistung der Kunden
+ * @return Response
+ */
+
 @Path("kunde")
 public class KundeService {
 
@@ -25,6 +36,11 @@ public class KundeService {
                 .build();
 
     }
+    /**
+     * Liest den Kunden mit der UUID
+     * @param kundeUUID
+     * @return Response
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

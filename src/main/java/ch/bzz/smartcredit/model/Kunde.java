@@ -1,6 +1,11 @@
 package ch.bzz.smartcredit.model;
-
 import java.util.List;
+
+/**
+ * @autor : Francesco Ryu
+ * @date : 23.05.2022
+ * @Version : 3.0
+ */
 
 public class Kunde {
 

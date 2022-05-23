@@ -13,7 +13,9 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
- * configure the web services and properties
+ * @autor : Francesco Ryu
+ * @date : 23.05.2022
+ * @Version : 5.0
  */
 
 @ApplicationPath("/resource")
@@ -23,9 +25,9 @@ public class Config extends Application {
     private static Properties properties = null;
 
     /**
-     * define all provider classes
+     * definiert alle providers
      *
-     * @return set of classes
+     * @return set von Classes
      */
     @Override
     public Set<Class<?>> getClasses() {
@@ -37,10 +39,8 @@ public class Config extends Application {
     }
 
     /**
-     * Gets the value of a property
-     *
-     * @param property the key of the property to be read
-     * @return the value of the property
+     * bekommt den Wert vom propertiesFile
+     * @return Wert vom properties
      */
     public static String getProperty(String property) {
         if (Config.properties == null) {
@@ -53,7 +53,7 @@ public class Config extends Application {
     }
 
     /**
-     * reads the properties file
+     * liest das propertiesFile
      */
     private static void readProperties() {
 
@@ -69,9 +69,8 @@ public class Config extends Application {
     }
 
     /**
-     * Sets the properties
-     *
-     * @param properties the value to set
+     * setter vom propertiesFile
+     * @param properties
      */
     private static void setProperties(Properties properties) {
         Config.properties = properties;

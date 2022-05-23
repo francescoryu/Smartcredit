@@ -9,7 +9,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * test service
+ * @autor : Francesco Ryu
+ * @date : 23.05.2022
+ * @Version : 1.0
  */
 @Path("test")
 public class TestService {
