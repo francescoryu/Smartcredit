@@ -1,0 +1,16 @@
+[
+ {
+  "kundeUUID": "69",
+  "kartenListe": 
+[
+  {
+    "kkarteUUID": "2049",
+    "institut": "American Express",
+    "kartenNummer": "1111-1111-1111-1111"
+  }
+],
+  "vorName": "Max",
+  "nachName": "Mayer",
+  "alter": 19
+ }
+]
