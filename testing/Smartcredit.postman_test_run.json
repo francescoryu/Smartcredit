@@ -1,0 +1,226 @@
+{
+	"id": "741222b6-7bbb-4e26-836f-62fe5cd6ba2c",
+	"name": "Smartcredit",
+	"timestamp": "2022-05-23T15:11:21.380Z",
+	"collection_id": "443c1981-0054-422b-88f3-d6352c7b9c24",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 6,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "5cca23a4-0d00-47f5-9fa6-04f85df67d5a",
+			"name": "0.1: Testservice",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/test/test",
+			"time": 191,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				191
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3b826225-bb5b-4eba-8740-29a5c7807f74",
+			"name": "0.2 KundeService List",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/list",
+			"time": 1018,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1018
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "7c39f7c7-ccc5-44ac-88fb-fe93ae8906cd",
+			"name": "0.3 KundeService Read by UUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/read?uuid=69",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "a17d9db6-ee4d-45ff-b684-33a05ab23e32",
+			"name": "0.4 KundeService Read by invalid UUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/read?uuid=3",
+			"time": 7,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status 404 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 404 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status 404 expected": true
+				}
+			]
+		},
+		{
+			"id": "8be52cf3-e488-4252-9e1b-06d21fa36d23",
+			"name": "0.5 KKarteService List",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/list",
+			"time": 10,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "d32c12e6-bef8-4bb2-8abb-26116e39079c",
+			"name": "0.6 KKarteService Read by UUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=2049",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "9ea20060-b6f0-4f4a-94a1-b62b362a6ffb",
+			"name": "0.6 KKarteService Read by invalid UUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=1",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status 404 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 404 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status 404 expected": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1254,
+	"collection": {
+		"requests": [
+			{
+				"id": "5cca23a4-0d00-47f5-9fa6-04f85df67d5a",
+				"method": "GET"
+			},
+			{
+				"id": "3b826225-bb5b-4eba-8740-29a5c7807f74",
+				"method": "GET"
+			},
+			{
+				"id": "7c39f7c7-ccc5-44ac-88fb-fe93ae8906cd",
+				"method": "GET"
+			},
+			{
+				"id": "a17d9db6-ee4d-45ff-b684-33a05ab23e32",
+				"method": "GET"
+			},
+			{
+				"id": "8be52cf3-e488-4252-9e1b-06d21fa36d23",
+				"method": "GET"
+			},
+			{
+				"id": "d32c12e6-bef8-4bb2-8abb-26116e39079c",
+				"method": "GET"
+			},
+			{
+				"id": "9ea20060-b6f0-4f4a-94a1-b62b362a6ffb",
+				"method": "GET"
+			}
+		]
+	}
+}
