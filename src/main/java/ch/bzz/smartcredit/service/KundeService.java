@@ -1,9 +1,7 @@
 package ch.bzz.smartcredit.service;
 
 import ch.bzz.smartcredit.data.DataHandler;
-import ch.bzz.smartcredit.model.KKarte;
 import ch.bzz.smartcredit.model.Kunde;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -28,25 +26,6 @@ import java.util.stream.Collectors;
 @Path("kunde")
 public class KundeService {
 
-    @GET
-    @Path("list")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response listKunden() {
-        List<Kunde> kundeList = DataHandler.getInstance().readAllKunde();
-        if (kundeList == null) {
-            return Response
-                    .status(404)
-                    .build();
-        }
-        else {
-            return Response
-                    .status(200)
-                    .entity(kundeList)
-                    .build();
-        }
-
-    }
-
     /**
      * Sort Methode für bestimmte Kriterien
      * @param sort
@@ -54,7 +33,7 @@ public class KundeService {
      */
 
     @GET
-    @Path("listSorted")
+    @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listKunde(@QueryParam("sort") String sort) {
         List<Kunde> kundeList = DataHandler.getInstance().readAllKunde();

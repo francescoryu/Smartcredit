@@ -1,7 +1,7 @@
 package ch.bzz.smartcredit.service;
+
 import ch.bzz.smartcredit.data.DataHandler;
 import ch.bzz.smartcredit.model.KKarte;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -25,23 +25,7 @@ import java.util.stream.Collectors;
 
 @Path("kkarte")
 public class KKarteService {
-    @GET
-    @Path("list")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response listKKarte() {
-        List<KKarte> kKarteList = DataHandler.getInstance().readAllKKarten();
-        if (kKarteList == null) {
-            return Response
-                    .status(404)
-                    .build();
-        }
-        else {
-            return Response
-                    .status(200)
-                    .entity(kKarteList)
-                    .build();
-        }
-    }
+
 
     /**
      * Sort Methode für bestimmte Kriterien
@@ -50,7 +34,7 @@ public class KKarteService {
      */
 
     @GET
-    @Path("listSorted")
+    @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listKKarte(@QueryParam("sort") String sort) {
         List<KKarte> kKarteList = DataHandler.getInstance().readAllKKarten();

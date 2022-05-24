@@ -1,16 +1,20 @@
 [
  {
-  "kundeUUID": "69",
-  "kartenListe": 
-[
-  {
-    "kkarteUUID": "2049",
-    "institut": "American Express",
-    "kartenNummer": "1111-1111-1111-1111"
-  }
-],
+  "kundeUUID": "63817fa0-01a3-419f-9839-cee87cf9a100",
   "vorName": "Max",
   "nachName": "Mayer",
   "alter": 19
+ },
+ {
+  "kundeUUID": "827c6a02-2519-44e5-9e48-6b4b824fa66a",
+  "vorName": "Amed",
+  "nachName": "Torsun",
+  "alter": 91
+ },
+ {
+  "kundeUUID": "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
+  "vorName": "Arsenal",
+  "nachName": "Looser",
+  "alter": 45
  }
 ]

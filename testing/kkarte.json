@@ -1,7 +1,17 @@
 [
  {
-  "kkarteUUID": "2049",
+  "kkarteUUID": "dea872e6-8f25-408c-8e7a-49087b6ff6cc",
   "institut": "American Express",
   "kartenNummer": "1111-1111-1111-1111"
+ },
+ {
+  "kkarteUUID": "693827b4-dc34-4b47-8474-027780c48773",
+  "institut": "Visa",
+  "kartenNummer": "5644-8487-1304-8761"
+ },
+ {
+  "kkarteUUID": "65aedd01-334a-4f09-88fa-7bdc28db0d25",
+  "institut": "Migros",
+  "kartenNummer": "4874-1589-9304-4756"
  }
 ]
