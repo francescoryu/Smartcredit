@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "443c1981-0054-422b-88f3-d6352c7b9c24",
+		"name": "Smartcredit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0.1: Testservice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/test/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"test",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 KundeService Read by UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 expected\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Smartcredit-1.0/resource/kunde/read?uuid=63817fa0-01a3-419f-9839-cee87cf9a100",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kunde",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "63817fa0-01a3-419f-9839-cee87cf9a100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.3 KundeService Read by invalid UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 404 expected\", function(){",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Smartcredit-1.0/resource/kunde/read?uuid=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kunde",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4 KundeService Sort",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 expected\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Smartcredit-1.0/resource/kunde/list?sort=kundeUUID&sort=vorName&sort=nachName&sort=alter",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kunde",
+						"list"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "kundeUUID"
+						},
+						{
+							"key": "sort",
+							"value": "vorName"
+						},
+						{
+							"key": "sort",
+							"value": "nachName"
+						},
+						{
+							"key": "sort",
+							"value": "alter"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 KKarteService Read by UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 expected\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=dea872e6-8f25-408c-8e7a-49087b6ff6cc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kkarte",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "dea872e6-8f25-408c-8e7a-49087b6ff6cc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3 KKarteService Read by invalid UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 404 expected\", function(){",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kkarte",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4 KKarteService Sort",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status 200 expected\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Smartcredit-1.0/resource/kkarte/list?sort=kkarteUUID&sort=institut&sort=kartenNummer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kkarte",
+						"list"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "kkarteUUID"
+						},
+						{
+							"key": "sort",
+							"value": "institut"
+						},
+						{
+							"key": "sort",
+							"value": "kartenNummer"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
