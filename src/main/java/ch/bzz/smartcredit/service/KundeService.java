@@ -36,7 +36,7 @@ public class KundeService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listKunde(@QueryParam("sort") String sort) {
-        List<Kunde> kundeList = DataHandler.getInstance().readAllKunde();
+        List<Kunde> kundeList = DataHandler.readAllKunde();
         List<Kunde> cloned_kundeList = kundeList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
             if(sort.equals("kundeUUID")){
@@ -75,7 +75,7 @@ public class KundeService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readKunde(@QueryParam("uuid") String kundeUUID) {
-        Kunde kunde = DataHandler.getInstance().readKundeByUUID(kundeUUID);
+        Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
         if (kunde == null) {
             return Response
                     .status(404)
