@@ -9,11 +9,11 @@ import java.util.List;
 
 public class Kunde {
 
+    private String kunde;
     private String kundeUUID;
-    private List<KKarte> kartenListe;
     private String vorName;
     private String nachName;
-    private int alter;
+    private Integer alter;
 
 
 
@@ -21,10 +21,6 @@ public class Kunde {
     //-------------Getter und Setter----------------//
     public String getKundeUUID() {
         return kundeUUID;
-    }
-
-    public List<KKarte> getKartenListe() {
-        return kartenListe;
     }
 
     public String getVorName() {
@@ -35,16 +31,12 @@ public class Kunde {
         return nachName;
     }
 
-    public int getAlter() {
+    public Integer getAlter() {
         return alter;
     }
 
     public void setKundeUUID(String kundeUUID) {
         this.kundeUUID = kundeUUID;
-    }
-
-    public void setKartenListe(List<KKarte> kartenListe) {
-        this.kartenListe = kartenListe;
     }
 
     public void setVorName(String vorName) {
@@ -55,7 +47,15 @@ public class Kunde {
         this.nachName = nachName;
     }
 
-    public void setAlter(int alter) {
+    public void setAlter(Integer alter) {
         this.alter = alter;
+    }
+
+    public String getKunde() {
+        return kunde;
+    }
+
+    public void setKunde(String kunde) {
+        this.kunde = kunde;
     }
 }

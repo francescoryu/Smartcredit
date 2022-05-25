@@ -1,5 +1,8 @@
 package ch.bzz.smartcredit.model;
 
+import ch.bzz.smartcredit.data.DataHandler;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @autor : Francesco Ryu
  * @date : 23.05.2022
@@ -7,27 +10,36 @@ package ch.bzz.smartcredit.model;
  */
 
 public class KKarte {
+    @JsonIgnore
+    private Kunde kunde;
+    private String kundeUUID;
+
     private String kkarteUUID;
     private String institut;
     private String kartenNummer;
 
-    /**
-     * Leerer Konstruktor
-     */
-
-    public KKarte() {
-
-    }
-
-    /**
-     * Konstruktor mit Werten
-     */
-
-    public KKarte(String kkarteUUID, String institut, String kartenNummer) {
-
-    }
-
     //-------------Getter und Setter----------------//
+
+    public String getKundeUUID() {
+        if (getKunde()== null) return null;
+        return getKunde().getKundeUUID();
+    }
+
+    public void setKundeUUID(String kundeUUID) {
+        setKunde(new Kunde());
+        Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
+        getKunde().setKundeUUID(kundeUUID);
+        getKunde().setKunde(kunde.getKunde());
+    }
+
+
+    public Kunde getKunde() {
+        return kunde;
+    }
+
+    public void setKunde(Kunde kunde) {
+        this.kunde = kunde;
+    }
 
     public String getKKarteUUID() {
         return kkarteUUID;
@@ -52,4 +64,5 @@ public class KKarte {
     public void setKartenNummer(String kartenNummer) {
         this.kartenNummer = kartenNummer;
     }
+
 }
