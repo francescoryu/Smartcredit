@@ -37,7 +37,7 @@ public class KKarteService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listKKarte(@QueryParam("sort") String sort) {
-        List<KKarte> kKarteList = DataHandler.getInstance().readAllKKarten();
+        List<KKarte> kKarteList = DataHandler.readAllKKarten();
         List<KKarte> cloned_kKarteList = kKarteList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
             if(sort.equals("kkarteUUID")){
@@ -74,7 +74,7 @@ public class KKarteService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readCard(@QueryParam("uuid") String kkarteUUID) {
-        KKarte kkarte = DataHandler.getInstance().readKKarteByUUID(kkarteUUID);
+        KKarte kkarte = DataHandler.readKKarteByUUID(kkarteUUID);
         if (kkarte == null) {
             return Response
                     .status(404)

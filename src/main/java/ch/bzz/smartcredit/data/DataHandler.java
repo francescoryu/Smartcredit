@@ -1,4 +1,5 @@
 package ch.bzz.smartcredit.data;
+
 import ch.bzz.smartcredit.model.KKarte;
 import ch.bzz.smartcredit.model.Kunde;
 import ch.bzz.smartcredit.service.Config;
@@ -18,39 +19,31 @@ import java.util.List;
  */
 
 public class DataHandler {
-    private static DataHandler instance = null;
-    private List<KKarte> kKarteList;
-    private List<Kunde> kundeList;
+    private static List<KKarte> kKarteList;
+    private static List<Kunde> kundeList;
 
     private DataHandler() {
-        setKundeList(new ArrayList<>());
-        readKundeJSON();
-        setKKarteList(new ArrayList<>());
-        readKKarteJSON();
-    }
 
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
     }
 
     /**
      * Liest alle KKarten
+     *
      * @return KKartenliste
      */
 
-    public List<KKarte> readAllKKarten() {
+    public static List<KKarte> readAllKKarten() {
         return getKKarteList();
     }
 
     /**
      * Liest alle KKarten anhand der UUID
+     *
      * @param kkarteUUID
      * @return KKarte
      */
 
-    public KKarte readKKarteByUUID(String kkarteUUID) {
+    public static KKarte readKKarteByUUID(String kkarteUUID) {
         KKarte kKarte = null;
         for (KKarte entry : getKKarteList()) {
             if (entry.getKKarteUUID().equals(kkarteUUID)) {
@@ -60,17 +53,18 @@ public class DataHandler {
         return kKarte;
     }
 
-    public List<Kunde> readAllKunde() {
+    public static List<Kunde> readAllKunde() {
 
         return getKundeList();
     }
 
     /**
      * Liest Kunde anhand der UUID
+     *
      * @param kundeUUID
      * @return Kunde (null = nicht gefunden)
      */
-    public Kunde readKundeByUUID(String kundeUUID) {
+    public static Kunde readKundeByUUID(String kundeUUID) {
         Kunde kunde = null;
         for (Kunde entry : getKundeList()) {
             if (entry.getKundeUUID().equals(kundeUUID)) {
@@ -83,7 +77,7 @@ public class DataHandler {
     /**
      * liest die KKarten vom JSON-file
      */
-    private void readKKarteJSON() {
+    private static void readKKarteJSON() {
         try {
             String path = Config.getProperty("kkarteJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -102,7 +96,7 @@ public class DataHandler {
     /**
      * liest den Kunden anhand vom JSON-file
      */
-    private void readKundeJSON() {
+    private static void readKundeJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -118,12 +112,19 @@ public class DataHandler {
             ex.printStackTrace();
         }
     }
+
     /**
      * get KKarteList
      *
      * @return Wert der KKartenliste
      */
-    private List<KKarte> getKKarteList() {
+    private static List<KKarte> getKKarteList() {
+        if (kKarteList == null) {
+            setKKarteList(new ArrayList<>());
+            readKKarteJSON();
+
+        }
+
         return kKarteList;
     }
 
@@ -132,8 +133,8 @@ public class DataHandler {
      *
      * @param kKarteList den Wert
      */
-    private void setKKarteList(List<KKarte> kKarteList) {
-        this.kKarteList = kKarteList;
+    private static void setKKarteList(List<KKarte> kKarteList) {
+        DataHandler.kKarteList = kKarteList;
     }
 
     /**
@@ -141,7 +142,12 @@ public class DataHandler {
      *
      * @return Wert der KundeList
      */
-    private List<Kunde> getKundeList() {
+    private static List<Kunde> getKundeList() {
+        if (kundeList == null) {
+            setKundeList(new ArrayList<>());
+            readKundeJSON();
+        }
+
         return kundeList;
     }
 
@@ -150,8 +156,8 @@ public class DataHandler {
      *
      * @param kundeList den Wert
      */
-    private void setKundeList(List<Kunde> kundeList) {
-        this.kundeList = kundeList;
+    private static void setKundeList(List<Kunde> kundeList) {
+        DataHandler.kundeList = kundeList;
     }
 
 
