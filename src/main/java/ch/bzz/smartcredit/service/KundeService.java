@@ -74,9 +74,7 @@ public class KundeService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readKunde(
-            @QueryParam("uuid") String kundeUUID
-    ) {
+    public Response readKunde(@QueryParam("uuid") String kundeUUID) {
         Kunde kunde = DataHandler.getInstance().readKundeByUUID(kundeUUID);
         if (kunde == null) {
             return Response

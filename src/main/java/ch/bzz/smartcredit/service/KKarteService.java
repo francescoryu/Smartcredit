@@ -73,9 +73,7 @@ public class KKarteService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readCard(
-            @QueryParam("uuid") String kkarteUUID
-    ) {
+    public Response readCard(@QueryParam("uuid") String kkarteUUID) {
         KKarte kkarte = DataHandler.getInstance().readKKarteByUUID(kkarteUUID);
         if (kkarte == null) {
             return Response
