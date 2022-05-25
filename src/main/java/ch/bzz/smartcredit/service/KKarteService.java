@@ -2,14 +2,14 @@ package ch.bzz.smartcredit.service;
 
 import ch.bzz.smartcredit.data.DataHandler;
 import ch.bzz.smartcredit.model.KKarte;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -86,6 +86,45 @@ public class KKarteService {
                     .entity(kkarte)
                     .build();
         }
+
+    }
+
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteKKarte(
+            @QueryParam("uuid") String kkarteUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.deleteKKarte(kkarteUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createKKarte(
+            @FormParam("kkarteUUID") String kkarteUUID,
+            @FormParam("institut") String institut,
+            @FormParam("kartenNummer") String kartenNummer,
+            @FormParam("kundeUUID") String kundeUUID
+    ) {
+        KKarte kKarte = new KKarte();
+        kKarte.setKKarteUUID(UUID.randomUUID().toString());
+        kKarte.setInstitut(institut);
+        kKarte.setKartenNummer(kartenNummer);
+        kKarte.setKundeUUID(kundeUUID);
+
+        DataHandler.insertKKarte(kKarte);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
     }
 
 }

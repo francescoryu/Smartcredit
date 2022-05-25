@@ -4,9 +4,12 @@ import ch.bzz.smartcredit.model.KKarte;
 import ch.bzz.smartcredit.model.Kunde;
 import ch.bzz.smartcredit.service.Config;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -58,6 +61,11 @@ public class DataHandler {
         return getKundeList();
     }
 
+    public static void insertKKarte(KKarte kKarte) {
+        getKKarteList().add(kKarte);
+        writeKKarteJSON();
+    }
+
     /**
      * Liest Kunde anhand der UUID
      *
@@ -72,6 +80,33 @@ public class DataHandler {
             }
         }
         return kunde;
+    }
+
+    public static boolean deleteKKarte(String kkarteUUID) {
+        KKarte kKarte = readKKarteByUUID(kkarteUUID);
+        if (kKarte != null) {
+            getKKarteList().remove(kKarte);
+            writeKKarteJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static void writeKKarteJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("kkarteJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getKKarteList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -113,6 +148,7 @@ public class DataHandler {
         }
     }
 
+
     /**
      * get KKarteList
      *
@@ -137,6 +173,8 @@ public class DataHandler {
         DataHandler.kKarteList = kKarteList;
     }
 
+
+
     /**
      * gets KundeList
      *
@@ -150,6 +188,8 @@ public class DataHandler {
 
         return kundeList;
     }
+
+
 
     /**
      * sets KundeList
