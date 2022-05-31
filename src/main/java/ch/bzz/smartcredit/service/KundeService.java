@@ -1,15 +1,15 @@
 package ch.bzz.smartcredit.service;
 
 import ch.bzz.smartcredit.data.DataHandler;
+import ch.bzz.smartcredit.model.KKarte;
 import ch.bzz.smartcredit.model.Kunde;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -87,6 +87,70 @@ public class KundeService {
                     .entity(kunde)
                     .build();
         }
+    }
+    @DELETE
+    @Path("delete")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response deleteKunde(
+            @QueryParam("uuid") String kundeUUID
+    ) {
+        int httpStatus = 200;
+        if (!DataHandler.deleteKunde(kundeUUID)) {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
+    @POST
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response createKunde(
+            @FormParam("kundeUUID") String kundeUUID,
+            @FormParam("vorName") String vorName,
+            @FormParam("nachName") String nachName,
+            @FormParam("alter") Integer alter
+    ) {
+        Kunde kunde = new Kunde();
+        kunde.setKundeUUID(UUID.randomUUID().toString());
+        kunde.setVorName(vorName);
+        kunde.setNachName(nachName);
+        kunde.setAlter(alter);
+
+        DataHandler.insertKunde(kunde);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateKKarte(
+            @FormParam("kundeUUID") String kundeUUID,
+            @FormParam("vorName") String vorName,
+            @FormParam("nachName") String nachName,
+            @FormParam("alter") Integer alter
+    ) {
+        int httpStatus = 200;
+        Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
+        if (kunde != null) {
+            kunde.setKundeUUID(UUID.randomUUID().toString());
+            kunde.setVorName(vorName);
+            kunde.setNachName(nachName);
+            kunde.setAlter(alter);
+
+            DataHandler.insertKunde(kunde);
+        } else {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
     }
 
 }

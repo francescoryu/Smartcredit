@@ -66,6 +66,19 @@ public class DataHandler {
         writeKKarteJSON();
     }
 
+    public static void updateKKarte() {
+        writeKKarteJSON();
+    }
+
+    public static void insertKunde(Kunde kunde) {
+        getKundeList().add(kunde);
+        writeKKarteJSON();
+    }
+
+    public static void updateKunde() {
+        writeKKarteJSON();
+    }
+
     /**
      * Liest Kunde anhand der UUID
      *
@@ -93,6 +106,17 @@ public class DataHandler {
         }
     }
 
+    public static boolean deleteKunde(String kundeUUID) {
+        Kunde kunde = readKundeByUUID(kundeUUID);
+        if (kunde != null) {
+            getKundeList().remove(kunde);
+            writeKKarteJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private static void writeKKarteJSON() {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
@@ -104,6 +128,22 @@ public class DataHandler {
             fileOutputStream = new FileOutputStream(bookPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
             objectWriter.writeValue(fileWriter, getKKarteList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private static void writeKundeJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("kundeJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getKundeList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

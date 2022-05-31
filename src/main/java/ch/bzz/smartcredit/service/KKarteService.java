@@ -127,4 +127,30 @@ public class KKarteService {
                 .build();
     }
 
+    @PUT
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response updateKKarte(
+            @FormParam("kkarteUUID") String kkarteUUID,
+            @FormParam("institut") String institut,
+            @FormParam("kartenNummer") String kartenNummer,
+            @FormParam("kundeUUID") String kundeUUID
+    ) {
+        int httpStatus = 200;
+        KKarte kKarte = DataHandler.readKKarteByUUID(kkarteUUID);
+        if (kKarte != null) {
+            kKarte.setInstitut(institut);
+            kKarte.setKartenNummer(kartenNummer);
+            kKarte.setKundeUUID(kundeUUID);
+
+            DataHandler.insertKKarte(kKarte);
+        } else {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
+
 }
