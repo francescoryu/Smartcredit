@@ -3,6 +3,7 @@ package ch.bzz.smartcredit.service;
 import ch.bzz.smartcredit.data.DataHandler;
 import ch.bzz.smartcredit.model.Kunde;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -116,39 +117,19 @@ public class KundeService {
     }
 
     /**
-     * erstellt neuen Kunde
-     * @param kundeUUID
-     * @param vorName
-     * @param nachName
-     * @param alter
-     * @return
+     * erstellt neuer Kunde
+     * @param kunde
+     * @return Response
      */
 
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createKunde(
-            @FormParam("kundeUUID") String kundeUUID,
-
-            @NotEmpty
-            @Size(min = 2, max = 40)
-            @FormParam("vorName") String vorName,
-
-            @NotEmpty
-            @Size(min = 2, max = 50)
-            @FormParam("nachName") String nachName,
-
-            @NotEmpty
-            @Min(value = 7)
-            @Max(value = 999)
-            @FormParam("alter") Integer alter
+            @Valid @BeanParam Kunde kunde
     ) {
-        Kunde kunde = new Kunde();
         kunde.setKundeUUID(UUID.randomUUID().toString());
-        kunde.setKunde(" ");
-        kunde.setVorName(vorName);
-        kunde.setNachName(nachName);
-        kunde.setAlter(alter);
+
 
         DataHandler.insertKunde(kunde);
         return Response
@@ -180,7 +161,6 @@ public class KundeService {
             @Size(min = 2, max = 50)
             @FormParam("nachName") String nachName,
 
-            @NotEmpty
             @Min(value = 7)
             @Max(value = 999)
             @FormParam("alter") Integer alter

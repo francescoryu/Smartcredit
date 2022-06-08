@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 
@@ -17,14 +18,10 @@ import javax.ws.rs.FormParam;
 public class KKarte {
     @JsonIgnore
     private Kunde kunde;
+
     private String kundeUUID;
-
     private String kkarteUUID;
-
-    @FormParam("institut")
-    @Size(min=2, max=40)
     private String institut;
-
     private String kartenNummer;
 
     //-------------Getter und Setter----------------//

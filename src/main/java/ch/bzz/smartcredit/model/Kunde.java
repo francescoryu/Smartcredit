@@ -27,7 +27,6 @@ public class Kunde {
     @Size(min = 2, max = 50)
     private String nachName;
 
-    @NotEmpty
     @FormParam("alter")
     @Min(value = 7)
     @Max(value = 999)
