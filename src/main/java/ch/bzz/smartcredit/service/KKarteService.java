@@ -129,11 +129,14 @@ public class KKarteService {
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("kkarteUUID") String kkarteUUID,
+
             @Size(min=2, max=40)
             @FormParam("institut") String institut,
 
-
+            @NotEmpty
+            @Pattern(regexp = "([0-9]{4}[[:blank:]]){3}[0-9]{4}")
             @FormParam("kartenNummer") String kartenNummer,
+
             @FormParam("kundeUUID") String kundeUUID
     ) {
         KKarte kKarte = new KKarte();
@@ -166,10 +169,16 @@ public class KKarteService {
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("kkarteUUID") String kkarteUUID,
 
+            @NotEmpty
             @Size(min=2, max=40)
             @FormParam("institut") String institut,
 
+            @NotEmpty
+            @Pattern(regexp = "([0-9]{4}[[:blank:]]){3}[0-9]{4}")
             @FormParam("kartenNummer") String kartenNummer,
+
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("kundeUUID") String kundeUUID
     ) {
         int httpStatus = 200;
