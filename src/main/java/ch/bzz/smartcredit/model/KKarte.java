@@ -3,6 +3,11 @@ package ch.bzz.smartcredit.model;
 import ch.bzz.smartcredit.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+
 /**
  * @autor : Francesco Ryu
  * @date : 23.05.2022
@@ -15,7 +20,11 @@ public class KKarte {
     private String kundeUUID;
 
     private String kkarteUUID;
+
+    @FormParam("institut")
+    @Size(min=2, max=40)
     private String institut;
+
     private String kartenNummer;
 
     //-------------Getter und Setter----------------//

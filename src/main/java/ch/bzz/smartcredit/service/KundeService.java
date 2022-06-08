@@ -1,9 +1,9 @@
 package ch.bzz.smartcredit.service;
 
 import ch.bzz.smartcredit.data.DataHandler;
-import ch.bzz.smartcredit.model.KKarte;
 import ch.bzz.smartcredit.model.Kunde;
 
+import javax.validation.constraints.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 /**
  * @autor : Francesco Ryu
- * @date : 23.05.2022
+ * @date : 08.06.2022
  * @Version : 3.0
  */
 
@@ -75,6 +75,8 @@ public class KundeService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readKunde(@QueryParam("uuid") String kundeUUID) {
+        @NotEmpty
+        @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
         Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
         if (kunde == null) {
             return Response
@@ -88,10 +90,19 @@ public class KundeService {
                     .build();
         }
     }
+
+    /**
+     * Löscht ein Kunde anhand der UUID
+     * @param kundeUUID
+     * @return Response
+     */
+
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteKunde(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String kundeUUID
     ) {
         int httpStatus = 200;
@@ -104,17 +115,37 @@ public class KundeService {
                 .build();
     }
 
+    /**
+     * erstellt neuen Kunde
+     * @param kundeUUID
+     * @param vorName
+     * @param nachName
+     * @param alter
+     * @return
+     */
+
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createKunde(
             @FormParam("kundeUUID") String kundeUUID,
+
+            @NotEmpty
+            @Size(min = 2, max = 40)
             @FormParam("vorName") String vorName,
+
+            @NotEmpty
+            @Size(min = 2, max = 50)
             @FormParam("nachName") String nachName,
+
+            @NotEmpty
+            @Min(value = 7)
+            @Max(value = 999)
             @FormParam("alter") Integer alter
     ) {
         Kunde kunde = new Kunde();
         kunde.setKundeUUID(UUID.randomUUID().toString());
+        kunde.setKunde(" ");
         kunde.setVorName(vorName);
         kunde.setNachName(nachName);
         kunde.setAlter(alter);
@@ -126,24 +157,43 @@ public class KundeService {
                 .build();
     }
 
+    /**
+     * Updatet ein Kunde anhand der UUID
+     * @param kundeUUID
+     * @param vorName
+     * @param nachName
+     * @param alter
+     * @return
+     */
+
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateKKarte(
+    public Response updateKunde(
             @FormParam("kundeUUID") String kundeUUID,
+
+            @NotEmpty
+            @Size(min = 2, max = 40)
             @FormParam("vorName") String vorName,
+
+            @NotEmpty
+            @Size(min = 2, max = 50)
             @FormParam("nachName") String nachName,
+
+            @NotEmpty
+            @Min(value = 7)
+            @Max(value = 999)
             @FormParam("alter") Integer alter
     ) {
         int httpStatus = 200;
         Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
         if (kunde != null) {
-            kunde.setKundeUUID(UUID.randomUUID().toString());
             kunde.setVorName(vorName);
             kunde.setNachName(nachName);
             kunde.setAlter(alter);
+            kunde.setKunde(" ");
 
-            DataHandler.insertKunde(kunde);
+            DataHandler.updateKunde();
         } else {
             httpStatus = 410;
         }
@@ -152,5 +202,4 @@ public class KundeService {
                 .entity("")
                 .build();
     }
-
 }

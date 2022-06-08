@@ -72,11 +72,11 @@ public class DataHandler {
 
     public static void insertKunde(Kunde kunde) {
         getKundeList().add(kunde);
-        writeKKarteJSON();
+        writeKundeJSON();
     }
 
     public static void updateKunde() {
-        writeKKarteJSON();
+        writeKundeJSON();
     }
 
     /**
@@ -110,7 +110,7 @@ public class DataHandler {
         Kunde kunde = readKundeByUUID(kundeUUID);
         if (kunde != null) {
             getKundeList().remove(kunde);
-            writeKKarteJSON();
+            writeKundeJSON();
             return true;
         } else {
             return false;

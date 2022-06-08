@@ -1,4 +1,9 @@
 package ch.bzz.smartcredit.model;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import java.util.List;
 
 /**
@@ -11,8 +16,21 @@ public class Kunde {
 
     private String kunde;
     private String kundeUUID;
+
+    @NotEmpty
+    @FormParam("vorName")
+    @Size(min = 2, max = 40)
     private String vorName;
+
+    @NotEmpty
+    @FormParam("nachName")
+    @Size(min = 2, max = 50)
     private String nachName;
+
+    @NotEmpty
+    @FormParam("alter")
+    @Min(value = 7)
+    @Max(value = 999)
     private Integer alter;
 
 

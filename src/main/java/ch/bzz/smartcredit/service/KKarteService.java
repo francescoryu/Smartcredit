@@ -3,10 +3,12 @@ package ch.bzz.smartcredit.service;
 import ch.bzz.smartcredit.data.DataHandler;
 import ch.bzz.smartcredit.model.KKarte;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
@@ -14,7 +16,7 @@ import java.util.stream.Collectors;
 
 /**
  * @autor : Francesco Ryu
- * @date : 23.05.2022
+ * @date : 08.06.2022
  * @Version : 2.0
  */
 
@@ -28,7 +30,7 @@ public class KKarteService {
 
 
     /**
-     * Sort Methode für bestimmte Kriterien
+     * sortiert KKarte anhand bestimmter Kriterien
      * @param sort
      * @return Response
      */
@@ -89,6 +91,12 @@ public class KKarteService {
 
     }
 
+    /**
+     * Löscht die KKarte anhand der UUID
+     * @param kkarteUUID
+     * @return Response
+     */
+
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
@@ -105,12 +113,26 @@ public class KKarteService {
                 .build();
     }
 
+    /**
+     * erstellt neue KKarte
+     * @param kkarteUUID
+     * @param institut
+     * @param kartenNummer
+     * @param kundeUUID
+     * @return Response
+     */
+
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createKKarte(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("kkarteUUID") String kkarteUUID,
+            @Size(min=2, max=40)
             @FormParam("institut") String institut,
+
+
             @FormParam("kartenNummer") String kartenNummer,
             @FormParam("kundeUUID") String kundeUUID
     ) {
@@ -127,12 +149,26 @@ public class KKarteService {
                 .build();
     }
 
+    /**
+     * Updatet die KKarte anhand der UUID
+     * @param kkarteUUID
+     * @param institut
+     * @param kartenNummer
+     * @param kundeUUID
+     * @return Response
+     */
+
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateKKarte(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("kkarteUUID") String kkarteUUID,
+
+            @Size(min=2, max=40)
             @FormParam("institut") String institut,
+
             @FormParam("kartenNummer") String kartenNummer,
             @FormParam("kundeUUID") String kundeUUID
     ) {
@@ -143,7 +179,7 @@ public class KKarteService {
             kKarte.setKartenNummer(kartenNummer);
             kKarte.setKundeUUID(kundeUUID);
 
-            DataHandler.insertKKarte(kKarte);
+            DataHandler.updateKKarte();
         } else {
             httpStatus = 410;
         }
