@@ -1,8 +1,5 @@
 package ch.bzz.smartcredit.model;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
 import java.util.List;
 
@@ -15,6 +12,9 @@ import java.util.List;
 public class Kunde {
 
     private String kunde;
+
+    @NotEmpty
+    @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String kundeUUID;
 
     @NotEmpty
