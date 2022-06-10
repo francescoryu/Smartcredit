@@ -3,10 +3,7 @@ package ch.bzz.smartcredit.model;
 import ch.bzz.smartcredit.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
 
 /**
@@ -19,9 +16,23 @@ public class KKarte {
     @JsonIgnore
     private Kunde kunde;
 
+    @NotEmpty
+    @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+    @FormParam("kundeUUID")
     private String kundeUUID;
+
+    @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+    @FormParam("kkarteUUID")
     private String kkarteUUID;
+
+    @NotEmpty
+    @Size(min=2, max=40)
+    @FormParam("institut")
     private String institut;
+
+    @NotEmpty
+    @Pattern(regexp = "([0-9]{4} ){3}[0-9]{4}")
+    @FormParam("kartenNummer")
     private String kartenNummer;
 
     //-------------Getter und Setter----------------//

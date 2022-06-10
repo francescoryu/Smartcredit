@@ -6,6 +6,2027 @@
 	},
 	"item": [
 		{
+			"name": "Validation KKarte",
+			"item": [
+				{
+					"name": "1.1 Create KKarte under min. length institut",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1111 1111 2222 2222",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 Create KKarte valid institut",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1111 1111 2222 2222",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 Create KKarte over max. length institut",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1111 1111 2222 2222",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.1 Create KKarte invalid kartenNummer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 123456",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Create KKarte valid kartenNummer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 1234",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 Create KKarte invalid kundeUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 1234",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 Create KKarte valid kundeUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 1234",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.1 Update KKarte under min. length institut Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1111 1111 2222 2222",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								},
+								{
+									"key": "kkarteUUID",
+									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 Update KKarte valid institut",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1111 1111 2222 2222",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								},
+								{
+									"key": "kkarteUUID",
+									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 Create KKarte over max. length institut Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1111 1111 2222 2222",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								},
+								{
+									"key": "kkarteUUID",
+									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.1 Update KKarte invalid kartenNummer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 123456",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								},
+								{
+									"key": "kkarteUUID",
+									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Update KKarte valid kartenNummer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 1234",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								},
+								{
+									"key": "kkarteUUID",
+									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 Update KKarte invalid kundeUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 1234",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "kkarteUUID",
+									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 Update KKarte valid kundeUUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "institut",
+									"value": "aaaa",
+									"type": "text"
+								},
+								{
+									"key": "kartenNummer",
+									"value": "1234 1234 1234 1234",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+									"type": "text"
+								},
+								{
+									"key": "kkarteUUID",
+									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kkarte",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Validation Kunde",
+			"item": [
+				{
+					"name": "1.1 Create Kunde under min. length vorName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 Create Kunde valid vorName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 Create Kunde over max. length vorName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "MarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.1 Create Kunde under min. length nachName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Create Kunde valid nachName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 Create Kunde over max. length nachName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "AsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 Create Kunde under min. length alter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 Create Kunde valid alter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3 Create Kunde over max. length alter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "AsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "1001",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.1 Update Kunde under min. length vorName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 Update Kunde valid vorName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.3 Update Kunde over max. length vorName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "MarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarcoMarco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.1 Update Kunde under min. length nachName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 Update Kunde valid nachName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.3 Update Kunde over max. length nachName",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "AsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 Update Kunde under min. length alter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 Update Kunde valid alter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 200 expected\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "Asensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "27",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.3 Update Kunde over max. length alter",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 400 expected\", function(){",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "vorName",
+									"value": "Marco",
+									"type": "text"
+								},
+								{
+									"key": "nachName",
+									"value": "AsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensioAsensio",
+									"type": "text"
+								},
+								{
+									"key": "alter",
+									"value": "1001",
+									"type": "text"
+								},
+								{
+									"key": "kundeUUID",
+									"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Smartcredit-1.0",
+								"resource",
+								"kunde",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "0.1: Testservice",
 			"request": {
 				"method": "GET",
@@ -284,6 +2305,306 @@
 							"key": "sort",
 							"value": "kartenNummer"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 Delete kkarte by uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "uuid",
+							"value": "dea872e6-8f25-408c-8e7a-49087b6ff6cc",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/Smartcredit-1.0/resource/kkarte/delete?uuid=582deee9-5339-48f2-ba63-0d66112a8c2e",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kkarte",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "582deee9-5339-48f2-ba63-0d66112a8c2e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.3 Create KKarte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "institut",
+							"value": "TEST TEST",
+							"type": "text"
+						},
+						{
+							"key": "kartenNummer",
+							"value": "9876 6789 9876 6789",
+							"type": "text"
+						},
+						{
+							"key": "kundeUUID",
+							"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kkarte",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4 Update KKarte",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "kkarteUUID",
+							"value": "b098fb68-16a5-4894-ba3f-8c30f3fb484c",
+							"type": "text"
+						},
+						{
+							"key": "institut",
+							"value": "MAFIA GMBH",
+							"type": "text"
+						},
+						{
+							"key": "kartenNummer",
+							"value": "0101 1010 0101 1010",
+							"type": "text"
+						},
+						{
+							"key": "kundeUUID",
+							"value": "0c685528-7d71-4640-9d15-69b3c21cd1fa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kkarte",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 Delete kunde by uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "uuid",
+							"value": "dea872e6-8f25-408c-8e7a-49087b6ff6cc",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/Smartcredit-1.0/resource/kunde/delete?uuid=3a0685e9-3a17-4dab-a8ae-94c98dca33ab",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kunde",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3a0685e9-3a17-4dab-a8ae-94c98dca33ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3 Create Kunde",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "vorName",
+							"value": "Marco",
+							"type": "text"
+						},
+						{
+							"key": "nachName",
+							"value": "Asensio",
+							"type": "text"
+						},
+						{
+							"key": "alter",
+							"value": "27",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kunde",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4 Update Kunde",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "kundeUUID",
+							"value": "fd4fcb82-8f04-4891-ba23-724a259a3f4e",
+							"type": "text"
+						},
+						{
+							"key": "vorName",
+							"value": "Update",
+							"type": "text"
+						},
+						{
+							"key": "nachName",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "alter",
+							"value": "18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Smartcredit-1.0",
+						"resource",
+						"kunde",
+						"update"
 					]
 				}
 			},

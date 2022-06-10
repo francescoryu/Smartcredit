@@ -1,36 +1,45 @@
 {
-	"id": "a5a94d2a-3eac-4496-a6df-325272ebf28a",
+	"id": "b0e72f16-b673-463a-bee5-c53500592dc1",
 	"name": "Smartcredit",
-	"timestamp": "2022-05-24T18:35:46.579Z",
+	"timestamp": "2022-06-10T21:26:38.612Z",
 	"collection_id": "443c1981-0054-422b-88f3-d6352c7b9c24",
 	"folder_id": 0,
 	"environment_id": "0",
-	"totalPass": 6,
-	"totalFail": 0,
+	"totalPass": 34,
+	"totalFail": 4,
 	"results": [
 		{
-			"id": "5cca23a4-0d00-47f5-9fa6-04f85df67d5a",
-			"name": "0.1: Testservice",
-			"url": "http://localhost:8080/Smartcredit-1.0/resource/test/test",
-			"time": 32,
+			"id": "9f411a2c-9b0f-4ef1-b7d1-5c8bda65278e",
+			"name": "1.1 Create KKarte under min. length institut",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 1360,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 400,
+				"name": "Bad Request"
 			},
-			"tests": {},
-			"testPassFailCounts": {},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
 			"times": [
-				32
+				1360
 			],
 			"allTests": [
-				{}
+				{
+					"Status 400 expected": true
+				}
 			]
 		},
 		{
-			"id": "7c39f7c7-ccc5-44ac-88fb-fe93ae8906cd",
-			"name": "1.2 KundeService Read by UUID",
-			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/read?uuid=63817fa0-01a3-419f-9839-cee87cf9a100",
-			"time": 8,
+			"id": "6b8e18a7-6596-4121-8c80-8c36ce68d73a",
+			"name": "1.2 Create KKarte valid institut",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 917,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -45,7 +54,862 @@
 				}
 			},
 			"times": [
+				917
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "db568393-7dbc-46e8-b4da-9cb0d4dd5640",
+			"name": "1.3 Create KKarte over max. length institut",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 236,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				236
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "9a884062-03c6-4060-91c2-1eeb151fcf05",
+			"name": "2.1 Create KKarte invalid kartenNummer",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 46,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				46
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "e32f4e01-af47-4efe-89b9-8948e6080546",
+			"name": "2.2 Create KKarte valid kartenNummer",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 28,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				28
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "62ef596b-ef98-49d7-b24f-c317ba34845a",
+			"name": "3.1 Create KKarte invalid kundeUUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 38,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				38
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "1cdb5d7c-68b4-401a-8141-3d2fd799c3ed",
+			"name": "3.2 Create KKarte valid kundeUUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 63,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				63
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "e2b16b77-f3bf-4757-9823-3014a340c90a",
+			"name": "1.1 Update KKarte under min. length institut Copy",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 117,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "80b3e9ba-fdcc-42e2-8e2b-9cef111c8625",
+			"name": "1.2 Update KKarte valid institut",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 37,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status 200 expected": false
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				37
+			],
+			"allTests": [
+				{
+					"Status 200 expected": false
+				}
+			]
+		},
+		{
+			"id": "42ee5b05-61e7-4e1f-9aa4-46a1543ebc10",
+			"name": "1.3 Create KKarte over max. length institut Copy",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "7295259e-b8a8-47b6-9f96-da17d780245b",
+			"name": "2.1 Update KKarte invalid kartenNummer",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "99b3ccb0-01ea-40a0-bf73-dba44cfcb4a1",
+			"name": "2.2 Update KKarte valid kartenNummer",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 62,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status 200 expected": false
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				62
+			],
+			"allTests": [
+				{
+					"Status 200 expected": false
+				}
+			]
+		},
+		{
+			"id": "8fce4018-eb3b-4657-bac5-bf3a984701fc",
+			"name": "3.1 Update KKarte invalid kundeUUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "2ff70ef8-fb39-4749-986a-8176a8c315f6",
+			"name": "3.2 Update KKarte valid kundeUUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 870,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status 200 expected": false
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				870
+			],
+			"allTests": [
+				{
+					"Status 200 expected": false
+				}
+			]
+		},
+		{
+			"id": "4af9dfed-3836-4d84-b66a-19cf0852bee3",
+			"name": "1.1 Create Kunde under min. length vorName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 43,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				43
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "22cfce5e-e311-4329-b533-4eb0abeacb65",
+			"name": "1.2 Create Kunde valid vorName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 170,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				170
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "a728a001-0b34-4a24-8385-c8de5a1de2df",
+			"name": "1.3 Create Kunde over max. length vorName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 76,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				76
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "cc04baff-68d6-4f2d-abb6-25fb0d0cade4",
+			"name": "2.1 Create Kunde under min. length nachName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "b9d26ecb-720e-4606-92fd-ebeb808871b3",
+			"name": "2.2 Create Kunde valid nachName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "9bb265e6-c64c-4ce5-82d5-41de6eaa480b",
+			"name": "2.3 Create Kunde over max. length nachName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "0f3adeea-56b1-4b7b-a885-0d4ab8324ada",
+			"name": "3.1 Create Kunde under min. length alter",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "ac823b9f-94e4-4ed2-82a9-a654853283ee",
+			"name": "3.2 Create Kunde valid alter",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 89,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				89
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "e2b88bad-6016-40d5-a419-3251e448f5bb",
+			"name": "3.3 Create Kunde over max. length alter",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "8418d946-e34a-482f-89ae-c674c597782b",
+			"name": "1.1 Update Kunde under min. length vorName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 18,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "e2cabcfe-55dd-4c1c-8420-35bde1181a01",
+			"name": "1.2 Update Kunde valid vorName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 69,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				69
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "1eb38f82-3c18-47ee-8e69-6cf77e407d92",
+			"name": "1.3 Update Kunde over max. length vorName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 7,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "cc6dafca-1d78-4b12-a392-253d6fc141d9",
+			"name": "2.1 Update Kunde under min. length nachName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 18,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				18
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "86f4bb32-5581-4f2a-890b-ebec0d218be3",
+			"name": "2.2 Update Kunde valid nachName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "84bfaa3a-2e2d-4199-9ec3-fd4a1c2691be",
+			"name": "2.3 Update Kunde over max. length nachName",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
 				8
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "76e8947c-71a1-4a88-8f4f-8ade972f9d51",
+			"name": "3.1 Update Kunde under min. length alter",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 19,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "1b57c653-4ed7-4f4c-a565-692c08ef6ac5",
+			"name": "3.2 Update Kunde valid alter",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 108,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				108
+			],
+			"allTests": [
+				{
+					"Status 200 expected": true
+				}
+			]
+		},
+		{
+			"id": "38c43f09-63bb-4972-95f0-a12673430155",
+			"name": "3.3 Update Kunde over max. length alter",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 19,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status 400 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 400 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Status 400 expected": true
+				}
+			]
+		},
+		{
+			"id": "5cca23a4-0d00-47f5-9fa6-04f85df67d5a",
+			"name": "0.1: Testservice",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/test/test",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7c39f7c7-ccc5-44ac-88fb-fe93ae8906cd",
+			"name": "1.2 KundeService Read by UUID",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/read?uuid=63817fa0-01a3-419f-9839-cee87cf9a100",
+			"time": 228,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status 200 expected": true
+			},
+			"testPassFailCounts": {
+				"Status 200 expected": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				228
 			],
 			"allTests": [
 				{
@@ -57,7 +921,7 @@
 			"id": "a17d9db6-ee4d-45ff-b684-33a05ab23e32",
 			"name": "1.3 KundeService Read by invalid UUID",
 			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/read?uuid=3",
-			"time": 7,
+			"time": 18,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -72,7 +936,7 @@
 				}
 			},
 			"times": [
-				7
+				18
 			],
 			"allTests": [
 				{
@@ -84,7 +948,7 @@
 			"id": "d7b87ed5-0b48-4475-8091-cba38f598f5b",
 			"name": "1.4 KundeService Sort",
 			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/list?sort=kundeUUID&sort=vorName&sort=nachName&sort=alter",
-			"time": 43,
+			"time": 14,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -99,7 +963,7 @@
 				}
 			},
 			"times": [
-				43
+				14
 			],
 			"allTests": [
 				{
@@ -111,26 +975,26 @@
 			"id": "d32c12e6-bef8-4bb2-8abb-26116e39079c",
 			"name": "2.2 KKarteService Read by UUID",
 			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=dea872e6-8f25-408c-8e7a-49087b6ff6cc",
-			"time": 26,
+			"time": 4,
 			"responseCode": {
-				"code": 200,
-				"name": "OK"
+				"code": 404,
+				"name": "Not Found"
 			},
 			"tests": {
-				"Status 200 expected": true
+				"Status 200 expected": false
 			},
 			"testPassFailCounts": {
 				"Status 200 expected": {
-					"pass": 1,
-					"fail": 0
+					"pass": 0,
+					"fail": 1
 				}
 			},
 			"times": [
-				26
+				4
 			],
 			"allTests": [
 				{
-					"Status 200 expected": true
+					"Status 200 expected": false
 				}
 			]
 		},
@@ -138,7 +1002,7 @@
 			"id": "9ea20060-b6f0-4f4a-94a1-b62b362a6ffb",
 			"name": "2.3 KKarteService Read by invalid UUID",
 			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=1",
-			"time": 38,
+			"time": 26,
 			"responseCode": {
 				"code": 404,
 				"name": "Not Found"
@@ -153,7 +1017,7 @@
 				}
 			},
 			"times": [
-				38
+				26
 			],
 			"allTests": [
 				{
@@ -165,7 +1029,7 @@
 			"id": "ef9fb1ac-bdfb-44f0-9ac2-9a3bc64d54e1",
 			"name": "2.4 KKarteService Sort",
 			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/list?sort=kkarteUUID&sort=institut&sort=kartenNummer",
-			"time": 7,
+			"time": 24,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -180,19 +1044,255 @@
 				}
 			},
 			"times": [
-				7
+				24
 			],
 			"allTests": [
 				{
 					"Status 200 expected": true
 				}
 			]
+		},
+		{
+			"id": "0b4d0ca0-a90e-4f9d-8d11-da600d3ba8e2",
+			"name": "1.2 Delete kkarte by uuid",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/delete?uuid=582deee9-5339-48f2-ba63-0d66112a8c2e",
+			"time": 6,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8672a941-ddca-4b3b-a7d7-bfaf34ef7586",
+			"name": "1.3 Create KKarte",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/create",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				23
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "22f47f82-b5d6-423b-8e32-b3f49be9d490",
+			"name": "1.4 Update KKarte",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/update",
+			"time": 8,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8d876102-e921-467b-b0f0-604d64201861",
+			"name": "2.2 Delete kunde by uuid",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/delete?uuid=3a0685e9-3a17-4dab-a8ae-94c98dca33ab",
+			"time": 27,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				27
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "554c50e1-9ce9-4e40-9ba1-8576975c40e5",
+			"name": "2.3 Create Kunde",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/create",
+			"time": 36,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4a492536-ee7a-4f2b-9ebb-9ba20984388a",
+			"name": "2.4 Update Kunde",
+			"url": "http://localhost:8080/Smartcredit-1.0/resource/kunde/update",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				22
+			],
+			"allTests": [
+				{}
+			]
 		}
 	],
 	"count": 1,
-	"totalTime": 161,
+	"totalTime": 4953,
 	"collection": {
 		"requests": [
+			{
+				"id": "9f411a2c-9b0f-4ef1-b7d1-5c8bda65278e",
+				"method": "POST"
+			},
+			{
+				"id": "6b8e18a7-6596-4121-8c80-8c36ce68d73a",
+				"method": "POST"
+			},
+			{
+				"id": "db568393-7dbc-46e8-b4da-9cb0d4dd5640",
+				"method": "POST"
+			},
+			{
+				"id": "9a884062-03c6-4060-91c2-1eeb151fcf05",
+				"method": "POST"
+			},
+			{
+				"id": "e32f4e01-af47-4efe-89b9-8948e6080546",
+				"method": "POST"
+			},
+			{
+				"id": "62ef596b-ef98-49d7-b24f-c317ba34845a",
+				"method": "POST"
+			},
+			{
+				"id": "1cdb5d7c-68b4-401a-8141-3d2fd799c3ed",
+				"method": "POST"
+			},
+			{
+				"id": "e2b16b77-f3bf-4757-9823-3014a340c90a",
+				"method": "PUT"
+			},
+			{
+				"id": "80b3e9ba-fdcc-42e2-8e2b-9cef111c8625",
+				"method": "PUT"
+			},
+			{
+				"id": "42ee5b05-61e7-4e1f-9aa4-46a1543ebc10",
+				"method": "PUT"
+			},
+			{
+				"id": "7295259e-b8a8-47b6-9f96-da17d780245b",
+				"method": "PUT"
+			},
+			{
+				"id": "99b3ccb0-01ea-40a0-bf73-dba44cfcb4a1",
+				"method": "PUT"
+			},
+			{
+				"id": "8fce4018-eb3b-4657-bac5-bf3a984701fc",
+				"method": "PUT"
+			},
+			{
+				"id": "2ff70ef8-fb39-4749-986a-8176a8c315f6",
+				"method": "PUT"
+			},
+			{
+				"id": "4af9dfed-3836-4d84-b66a-19cf0852bee3",
+				"method": "POST"
+			},
+			{
+				"id": "22cfce5e-e311-4329-b533-4eb0abeacb65",
+				"method": "POST"
+			},
+			{
+				"id": "a728a001-0b34-4a24-8385-c8de5a1de2df",
+				"method": "POST"
+			},
+			{
+				"id": "cc04baff-68d6-4f2d-abb6-25fb0d0cade4",
+				"method": "POST"
+			},
+			{
+				"id": "b9d26ecb-720e-4606-92fd-ebeb808871b3",
+				"method": "POST"
+			},
+			{
+				"id": "9bb265e6-c64c-4ce5-82d5-41de6eaa480b",
+				"method": "POST"
+			},
+			{
+				"id": "0f3adeea-56b1-4b7b-a885-0d4ab8324ada",
+				"method": "POST"
+			},
+			{
+				"id": "ac823b9f-94e4-4ed2-82a9-a654853283ee",
+				"method": "POST"
+			},
+			{
+				"id": "e2b88bad-6016-40d5-a419-3251e448f5bb",
+				"method": "POST"
+			},
+			{
+				"id": "8418d946-e34a-482f-89ae-c674c597782b",
+				"method": "PUT"
+			},
+			{
+				"id": "e2cabcfe-55dd-4c1c-8420-35bde1181a01",
+				"method": "PUT"
+			},
+			{
+				"id": "1eb38f82-3c18-47ee-8e69-6cf77e407d92",
+				"method": "PUT"
+			},
+			{
+				"id": "cc6dafca-1d78-4b12-a392-253d6fc141d9",
+				"method": "PUT"
+			},
+			{
+				"id": "86f4bb32-5581-4f2a-890b-ebec0d218be3",
+				"method": "PUT"
+			},
+			{
+				"id": "84bfaa3a-2e2d-4199-9ec3-fd4a1c2691be",
+				"method": "PUT"
+			},
+			{
+				"id": "76e8947c-71a1-4a88-8f4f-8ade972f9d51",
+				"method": "PUT"
+			},
+			{
+				"id": "1b57c653-4ed7-4f4c-a565-692c08ef6ac5",
+				"method": "PUT"
+			},
+			{
+				"id": "38c43f09-63bb-4972-95f0-a12673430155",
+				"method": "PUT"
+			},
 			{
 				"id": "5cca23a4-0d00-47f5-9fa6-04f85df67d5a",
 				"method": "GET"
@@ -220,6 +1320,30 @@
 			{
 				"id": "ef9fb1ac-bdfb-44f0-9ac2-9a3bc64d54e1",
 				"method": "GET"
+			},
+			{
+				"id": "0b4d0ca0-a90e-4f9d-8d11-da600d3ba8e2",
+				"method": "DELETE"
+			},
+			{
+				"id": "8672a941-ddca-4b3b-a7d7-bfaf34ef7586",
+				"method": "POST"
+			},
+			{
+				"id": "22f47f82-b5d6-423b-8e32-b3f49be9d490",
+				"method": "PUT"
+			},
+			{
+				"id": "8d876102-e921-467b-b0f0-604d64201861",
+				"method": "DELETE"
+			},
+			{
+				"id": "554c50e1-9ce9-4e40-9ba1-8576975c40e5",
+				"method": "POST"
+			},
+			{
+				"id": "4a492536-ee7a-4f2b-9ebb-9ba20984388a",
+				"method": "PUT"
 			}
 		]
 	}

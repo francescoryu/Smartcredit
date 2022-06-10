@@ -2,7 +2,9 @@ package ch.bzz.smartcredit.service;
 
 import ch.bzz.smartcredit.data.DataHandler;
 import ch.bzz.smartcredit.model.KKarte;
+import ch.bzz.smartcredit.model.Kunde;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -115,9 +117,6 @@ public class KKarteService {
 
     /**
      * erstellt neue KKarte
-     * @param institut
-     * @param kartenNummer
-     * @param kundeUUID
      * @return Response
      */
 
@@ -125,18 +124,9 @@ public class KKarteService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response createKKarte(
-            @Size(min=2, max=40)
-            @FormParam("institut") String institut,
-
-            @Pattern(regexp = "^([0-9]{4} ){3}[0-9]{4}$")
-            @FormParam("kartenNummer") String kartenNummer,
-            @FormParam("kundeUUID") String kundeUUID
+            @Valid @BeanParam KKarte kKarte
     ) {
-        KKarte kKarte = new KKarte();
         kKarte.setKKarteUUID(UUID.randomUUID().toString());
-        kKarte.setInstitut(institut);
-        kKarte.setKartenNummer(kartenNummer);
-        kKarte.setKundeUUID(kundeUUID);
 
         DataHandler.insertKKarte(kKarte);
         return Response
@@ -167,7 +157,7 @@ public class KKarteService {
             @FormParam("institut") String institut,
 
             @NotEmpty
-            @Pattern(regexp = "([0-9]{4}[[:blank:]]){3}[0-9]{4}")
+            @Pattern(regexp = "([0-9]{4} ){3}[0-9]{4}")
             @FormParam("kartenNummer") String kartenNummer,
 
             @NotEmpty
