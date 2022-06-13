@@ -491,7 +491,7 @@
 								},
 								{
 									"key": "kkarteUUID",
-									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"value": "8233509c-6c3a-44b0-a035-cd8246bbce5b",
 									"type": "text"
 								}
 							]
@@ -671,7 +671,7 @@
 								},
 								{
 									"key": "kkarteUUID",
-									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"value": "d7a3aa5f-1111-4078-9291-3538eeac7dfc",
 									"type": "text"
 								}
 							]
@@ -791,7 +791,7 @@
 								},
 								{
 									"key": "kkarteUUID",
-									"value": "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+									"value": "d7a3aa5f-1111-4078-9291-3538eeac7dfc",
 									"type": "text"
 								}
 							]
@@ -2199,7 +2199,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=dea872e6-8f25-408c-8e7a-49087b6ff6cc",
+					"raw": "http://localhost:8080/Smartcredit-1.0/resource/kkarte/read?uuid=bcaee9e4-05aa-412b-b35f-a6dbe7be3a12",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -2214,7 +2214,7 @@
 					"query": [
 						{
 							"key": "uuid",
-							"value": "dea872e6-8f25-408c-8e7a-49087b6ff6cc"
+							"value": "bcaee9e4-05aa-412b-b35f-a6dbe7be3a12"
 						}
 					]
 				}
