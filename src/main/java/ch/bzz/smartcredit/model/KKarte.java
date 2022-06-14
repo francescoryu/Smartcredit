@@ -8,8 +8,8 @@ import javax.ws.rs.FormParam;
 
 /**
  * @autor : Francesco Ryu
- * @date : 23.05.2022
- * @Version : 4.0
+ * @date : 14.06.2022
+ * @Version : 5.0
  */
 
 public class KKarte {

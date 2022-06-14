@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * @autor : Francesco Ryu
- * @date : 23.05.2022
- * @Version : 3.0
+ * @date : 14.06.2022
+ * @Version : 5.0
  */
 
 public class Kunde {
