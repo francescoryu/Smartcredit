@@ -35,6 +35,7 @@ public class Config extends Application {
         providers.add(KKarteService.class);
         providers.add(TestService.class);
         providers.add(KundeService.class);
+        providers.add(UserService.class);
         return providers;
     }
 
