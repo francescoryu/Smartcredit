@@ -20,7 +20,7 @@ function readKKarte() {
         })
         .then(response => response.json())
         .then(data => {
-            showKkarteList(data);
+            showKKarteList(data);
         })
         .catch(function (error) {
             console.log(error);
@@ -36,14 +36,14 @@ function showKKarteList(data) {
     data.forEach(kkarte => {
         let row = tBody.insertRow(-1);
         row.insertCell(-1).innerHTML = kkarte.kartenNummer;
-        row.insertCell(-1).innerHTML = book.institut;
+        row.insertCell(-1).innerHTML = kkarte.institut;
         row.insertCell(-1).innerHTML = kkarte.kunde.kunde;
 
         let button = document.createElement("button");
         button.innerHTML = "Bearbeiten ...";
         button.type = "button";
         button.name = "editBook";
-        button.setAttribute("data-bookuuid", kkarte.kkarteUUID);
+        button.setAttribute("data-kkarteuuid", kkarte.kkarteUUID);
         button.addEventListener("click", editKKarte);
         row.insertCell(-1).appendChild(button);
 
@@ -64,7 +64,7 @@ function showKKarteList(data) {
  */
 function editKKarte(event) {
     const button = event.target;
-    const bookUUID = button.getAttribute("data-kkarteuuid");
+    const kkarteUUID = button.getAttribute("data-kkarteuuid");
     window.location.href = "./kkarteedit.html?uuid=" + kkarteUUID;
 }
 
@@ -82,7 +82,7 @@ function deleteKKarte(event) {
         })
         .then(function (response) {
             if (response.ok) {
-                window.location.href = "./bookshelf.html";
+                window.location.href = "./smartcredit.html";
             } else {
                 console.log(response);
             }
