@@ -35,14 +35,14 @@ function showKKarteList(data) {
     let tBody = document.getElementById("kkartelist");
     data.forEach(kkarte => {
         let row = tBody.insertRow(-1);
-        row.insertCell(-1).innerHTML = kkarte.kartenNummer;
+        row.insertCell(-1).innerHTML = kkarte.kkarteUUID;
         row.insertCell(-1).innerHTML = kkarte.institut;
         row.insertCell(-1).innerHTML = kkarte.kunde.kunde;
 
         let button = document.createElement("button");
         button.innerHTML = "Bearbeiten ...";
         button.type = "button";
-        button.name = "editBook";
+        button.name = "editKKarte";
         button.setAttribute("data-kkarteuuid", kkarte.kkarteUUID);
         button.addEventListener("click", editKKarte);
         row.insertCell(-1).appendChild(button);
@@ -74,7 +74,7 @@ function editKKarte(event) {
  */
 function deleteKKarte(event) {
     const button = event.target;
-    const bookUUID = button.getAttribute("data-kkarteuuid");
+    const kkarteUUID = button.getAttribute("data-kkarteuuid");
 
     fetch("./resource/kkarte/delete?uuid=" + kkarteUUID,
         {

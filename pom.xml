@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.bzz</groupId>
-    <artifactId>BookList</artifactId>
-    <version>1</version>
-    <name>BookList</name>
+    <artifactId>Smartcredit</artifactId>
+    <version>1.0</version>
+    <name>Smartcredit</name>
     <packaging>war</packaging>
 
     <properties>
