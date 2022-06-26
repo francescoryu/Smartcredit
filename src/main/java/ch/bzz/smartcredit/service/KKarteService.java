@@ -32,10 +32,18 @@ public class KKarteService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listKKarte() {
+    public Response listKKarte(
+            @CookieParam("userRole") String userRole
+    ) {
         List<KKarte> kKarteList = DataHandler.readAllKKarten();
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            httpStatus = 200;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(kKarteList)
                 .build();
     }

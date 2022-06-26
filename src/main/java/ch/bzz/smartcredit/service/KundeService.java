@@ -36,7 +36,10 @@ public class KundeService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listKunde(@QueryParam("sort") String sort) {
+    public Response listKunde(
+            @QueryParam("sort") String sort,
+            @CookieParam("userRole") String userRole
+    ) {
         List<Kunde> kundeList = DataHandler.readAllKunde();
         List<Kunde> cloned_kundeList = kundeList.stream().collect(Collectors.toList());
         if (sort!=null && !sort.isEmpty()) {
@@ -146,8 +149,9 @@ public class KundeService {
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updatePublisher(
+    public Response updateKunde(
             @Valid @BeanParam Kunde kunde
+
     ) {
         int httpStatus = 200;
         Kunde oldKunde = DataHandler.readKundeByUUID(kunde.getKundeUUID());
