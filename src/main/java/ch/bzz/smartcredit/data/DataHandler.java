@@ -2,6 +2,7 @@ package ch.bzz.smartcredit.data;
 
 import ch.bzz.smartcredit.model.KKarte;
 import ch.bzz.smartcredit.model.Kunde;
+import ch.bzz.smartcredit.model.User;
 import ch.bzz.smartcredit.service.Config;
 
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -24,6 +25,7 @@ import java.util.List;
 public class DataHandler {
     private static List<KKarte> kKarteList;
     private static List<Kunde> kundeList;
+    private static List<User> userList;
 
     private DataHandler() {
 
@@ -123,9 +125,9 @@ public class DataHandler {
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String bookPath = Config.getProperty("kkarteJSON");
+        String kkartePath = Config.getProperty("kkarteJSON");
         try {
-            fileOutputStream = new FileOutputStream(bookPath);
+            fileOutputStream = new FileOutputStream(kkartePath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
             objectWriter.writeValue(fileWriter, getKKarteList());
         } catch (IOException ex) {
@@ -198,9 +200,7 @@ public class DataHandler {
         if (kKarteList == null) {
             setKKarteList(new ArrayList<>());
             readKKarteJSON();
-
         }
-
         return kKarteList;
     }
 
@@ -240,5 +240,30 @@ public class DataHandler {
         DataHandler.kundeList = kundeList;
     }
 
-
+    private static void readUserJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("userJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            User[] users = objectMapper.readValue(jsonData, User[].class);
+            for (User user : users) {
+                getUserList().add(user);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static List<User> getUserList() {
+        if (DataHandler.userList == null) {
+            DataHandler.setUserList(new ArrayList<>());
+            readUserJSON();
+        }
+        return userList;
+    }
+    public static void setUserList(List<User> userList) {
+        DataHandler.userList = userList;
+    }
 }

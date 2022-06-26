@@ -35,9 +35,9 @@ function showKKarteList(data) {
     let tBody = document.getElementById("kkartelist");
     data.forEach(kkarte => {
         let row = tBody.insertRow(-1);
-        row.insertCell(-1).innerHTML = kkarte.kkarteUUID;
+        row.insertCell(-1).innerHTML = kkarte.kartenNummer;
+        row.insertCell(-1).innerHTML = kkarte.kunde.vorName + " " + kkarte.kunde.nachName;
         row.insertCell(-1).innerHTML = kkarte.institut;
-        row.insertCell(-1).innerHTML = kkarte.kunde.kunde;
 
         let button = document.createElement("button");
         button.innerHTML = "Bearbeiten ...";
@@ -82,7 +82,7 @@ function deleteKKarte(event) {
         })
         .then(function (response) {
             if (response.ok) {
-                window.location.href = "./smartcredit.html";
+                window.location.href = "./kkartelist.html";
             } else {
                 console.log(response);
             }

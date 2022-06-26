@@ -3,27 +3,27 @@
  * @author Marcel Suter
  */
 document.addEventListener("DOMContentLoaded", () => {
-    readKunden();
-    readKKarte();
+    readKunde();
 
-    document.getElementById("kkarteeditForm").addEventListener("submit", saveKKarte);
+    document.getElementById("kundeeditForm").addEventListener("submit", saveKunde);
     document.getElementById("cancel").addEventListener("click", cancelEdit);
 });
 
 /**
  * saves the data of a book
  */
-function saveKKarte(event) {
+function saveKunde(event) {
     event.preventDefault();
+    window.location.href = "./kundelist.html";
 
-    const kkarteForm = document.getElementById("kkarteeditForm");
-    const formData = new FormData(kkarteForm);
+    const kundeForm = document.getElementById("kundeeditForm");
+    const formData = new FormData(kundeForm);
     const data = new URLSearchParams(formData);
 
     let method;
-    let url = "./resource/kkarte/";
-    const kkarteUUID = getQueryParam("uuid");
-    if (kkarteUUID == null) {
+    let url = "./resource/kunde/";
+    const kundeUUID = getQueryParam("uuid");
+    if (kundeUUID == null) {
         method = "POST";
         url += "create";
     } else {
@@ -53,9 +53,9 @@ function saveKKarte(event) {
 /**
  * reads a book
  */
-function readKKarte() {
-    const kkarteUUID = getQueryParam("uuid");
-    fetch("./resource/kkarte/read?uuid=" + kkarteUUID)
+function readKunde() {
+    const kundeUUID = getQueryParam("uuid");
+    fetch("./resource/kunde/read?uuid=" + kundeUUID)
         .then(function (response) {
             if (response.ok) {
                 return response;
@@ -65,7 +65,7 @@ function readKKarte() {
         })
         .then(response => response.json())
         .then(data => {
-            showKKarte(data);
+            showKunde(data);
         })
         .catch(function (error) {
             console.log(error);
@@ -76,17 +76,16 @@ function readKKarte() {
  * show the data of a book
  * @param data  the book-data
  */
-function showKKarte(data) {
-    document.getElementById("kkarteUUID").value = data.kkarteUUID;
-    document.getElementById("institut").value = data.institut;
-    document.getElementById("kartenNummer").value = data.kartenNummer;
-    document.getElementById("kunde").value = data.kundeUUID;
+function showKunde(data) {
+    document.getElementById("vorName").value = data.vorName;
+    document.getElementById("nachName").value = data.nachName;
+    document.getElementById("alter").value = data.alter;
 }
 
 /**
  * reads all publishers as an array
  */
-function readKunden() {
+/*function readKunden() {
 
     fetch("./resource/kunde/list")
         .then(function (response) {
@@ -103,13 +102,13 @@ function readKunden() {
         .catch(function (error) {
             console.log(error);
         });
-}
+}*/
 
 /**
  * shows all publishers as a dropdown
  * @param data
  */
-function showKunden(data) {
+/*function showKunden(data) {
     let dropdown = document.getElementById("kunde");
     data.forEach(kunde => {
         let option = document.createElement("option");
@@ -117,12 +116,12 @@ function showKunden(data) {
         option.value = kunde.kundeUUID;
         dropdown.add(option);
     })
-}
+}*/
 
 /**
  * redirects to the bookshelf
  * @param event  the click-event
  */
 function cancelEdit(event) {
-    window.location.href = "./kkartelist.html";
+    window.location.href = "./kundelist.html";
 }

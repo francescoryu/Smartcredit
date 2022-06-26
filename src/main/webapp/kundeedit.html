@@ -6,34 +6,33 @@
   <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
   <meta name="project" content="Bookshelf"/>
   <meta name="description" content="book form edit"/>
-  <title>Buch bearbeiten</title>
-  <script src="./js/kkarteedit.js"></script>
+  <title>Kunde bearbeiten</title>
+  <script src="./js/kundeedit.js"></script>
   <script src="./js/util.js"></script>
 </head>
 <body>
 <nav id="nav">
   <span id="message" style="color: red;"></span>
 </nav>
-<h3>Kreditkarte bearbeiten</h3>
-<form id="kkarteeditForm" name="kkarteedit">
+<h3>Kunde bearbeiten</h3>
+<form id="kundeeditForm" name="kundeedit">
   <table>
     <tr>
-      <td><label for="kartenNummer">Kartennummer</label></td>
+      <td><label for="vorName">Vorname</label></td>
       <td>
-        <input id="kartenNummer" name="kartenNummer" type="text" size="30" required/>
-        <input id="kkarteUUID" name="kkarteUUID" type="hidden"/>
+        <input id="vorName" name="vorName" type="text" size="30" minlength="2" maxlength="30" required/>
+        <input id="kundeUUID" name="kundeUUID" type="hidden"/>
       </td>
     </tr>
     <tr>
-      <td><label for="institut">Institut</label></td>
-      <td><input id="institut" name="institut" type="text" size="30" minlength="2" maxlength="40" required/></td>
+      <td><label for="nachName">Nachname</label></td>
+      <td><input id="nachName" name="nachName" type="text" size="30" minlength="2" maxlength="40" required/></td>
     </tr>
     <tr>
-      <td><label for="kunde">Besitzer</label></td>
-      <td>
-        <select id="kunde" name="kundeUUID" required>
-        </select>
-      </td>
+      <td><label for="alter">Alter</label></td>
+      <td><input id="alter" name="alter" type="text" size="30" minlength="2" maxlength="40" required/></td>
+    </tr>
+
     </tr>
   </table>
   <table>

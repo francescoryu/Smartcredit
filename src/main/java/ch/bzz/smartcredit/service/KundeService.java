@@ -61,7 +61,7 @@ public class KundeService {
                     .build();
         } else {
             return Response
-                    .status(404)
+                    .status(200)
                     .entity(kundeList)
                     .build();
         }
@@ -125,7 +125,7 @@ public class KundeService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createKunde(
+    public Response insertKunde(
             @Valid @BeanParam Kunde kunde
     ) {
         kunde.setKundeUUID(UUID.randomUUID().toString());
@@ -140,38 +140,21 @@ public class KundeService {
 
     /**
      * Updatet ein Kunde anhand der UUID
-     * @param kundeUUID
-     * @param vorName
-     * @param nachName
-     * @param alter
      * @return
      */
 
     @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateKunde(
-            @FormParam("kundeUUID") String kundeUUID,
-
-            @NotEmpty
-            @Size(min = 2, max = 40)
-            @FormParam("vorName") String vorName,
-
-            @NotEmpty
-            @Size(min = 2, max = 50)
-            @FormParam("nachName") String nachName,
-
-            @Min(value = 7)
-            @Max(value = 999)
-            @FormParam("alter") Integer alter
+    public Response updatePublisher(
+            @Valid @BeanParam Kunde kunde
     ) {
         int httpStatus = 200;
-        Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
-        if (kunde != null) {
-            kunde.setVorName(vorName);
-            kunde.setNachName(nachName);
-            kunde.setAlter(alter);
-            kunde.setKunde(" ");
+        Kunde oldKunde = DataHandler.readKundeByUUID(kunde.getKundeUUID());
+        if (oldKunde != null) {
+            oldKunde.setVorName(kunde.getVorName());
+            oldKunde.setNachName(kunde.getNachName());
+            oldKunde.setAlter(kunde.getAlter());
 
             DataHandler.updateKunde();
         } else {

@@ -21,7 +21,9 @@ function sendLogin(form) {
             data: $("#loginForm").serialize()
         })
         .done(function () {
-            window.location.href = "./smartcredit.html";
+            window.location.href = "./kkartelist.html";
+            window.location.href = "./kundelist.html";
+
         })
         .fail(function (xhr, status, errorThrown) {
             if (xhr.status == 404) {

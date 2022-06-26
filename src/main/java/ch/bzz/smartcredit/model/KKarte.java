@@ -13,6 +13,7 @@ import javax.ws.rs.FormParam;
  */
 
 public class KKarte {
+
     private Kunde kunde;
 
     @NotEmpty
@@ -38,15 +39,17 @@ public class KKarte {
 
     public String getKundeUUID() {
         if (getKunde()== null) return null;
-        return getKunde().getKundeUUID();
+        return kundeUUID;
     }
 
     public void setKundeUUID(String kundeUUID) {
         setKunde(new Kunde());
         Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
         getKunde().setKundeUUID(kundeUUID);
-        getKunde().setKunde(kunde.getKunde());
+        getKunde().setVorName(kunde.getVorName());
+        getKunde().setNachName(kunde.getNachName());
     }
+
 
 
     public Kunde getKunde() {

@@ -2,7 +2,6 @@ package ch.bzz.smartcredit.service;
 
 import ch.bzz.smartcredit.data.DataHandler;
 import ch.bzz.smartcredit.model.KKarte;
-import ch.bzz.smartcredit.model.Kunde;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
@@ -30,41 +29,15 @@ import java.util.stream.Collectors;
 @Path("kkarte")
 public class KKarteService {
 
-
-    /**
-     * sortiert KKarte anhand bestimmter Kriterien
-     * @param sort
-     * @return Response
-     */
-
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listKKarte(@QueryParam("sort") String sort) {
+    public Response listKKarte() {
         List<KKarte> kKarteList = DataHandler.readAllKKarten();
-        List<KKarte> cloned_kKarteList = kKarteList.stream().collect(Collectors.toList());
-        if (sort!=null && !sort.isEmpty()) {
-            if(sort.equals("kkarteUUID")){
-                cloned_kKarteList.sort(Comparator.comparing(KKarte::getKKarteUUID));
-            }
-
-            if(sort.equals("kartenNummer")){
-                cloned_kKarteList.sort(Comparator.comparing(KKarte::getKartenNummer));
-            }
-
-            if(sort.equals("institut")){
-                cloned_kKarteList.sort(Comparator.comparing(KKarte::getInstitut));
-            }
-            return Response
-                    .status(200)
-                    .entity(cloned_kKarteList)
-                    .build();
-        } else {
-            return Response
-                    .status(404)
-                    .entity(kKarteList)
-                    .build();
-        }
+        return Response
+                .status(200)
+                .entity(kKarteList)
+                .build();
     }
 
 
@@ -77,20 +50,20 @@ public class KKarteService {
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readCard(@QueryParam("uuid") String kkarteUUID) {
-        KKarte kkarte = DataHandler.readKKarteByUUID(kkarteUUID);
-        if (kkarte == null) {
-            return Response
-                    .status(404)
-                    .build();
+    public Response readKKarte(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @QueryParam("uuid") String kkarteUUID
+    ) {
+        int httpStatus = 200;
+        KKarte kKarte = DataHandler.readKKarteByUUID(kkarteUUID);
+        if (kKarte == null) {
+            httpStatus = 410;
         }
-        else {
-            return Response
-                    .status(200)
-                    .entity(kkarte)
-                    .build();
-        }
-
+        return Response
+                .status(httpStatus)
+                .entity(kKarte)
+                .build();
     }
 
     /**
@@ -123,10 +96,14 @@ public class KKarteService {
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response createKKarte(
-            @Valid @BeanParam KKarte kKarte
+    public Response insertKKarte(
+            @Valid @BeanParam KKarte kKarte,
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("kundeUUID") String kundeUUID
     ) {
         kKarte.setKKarteUUID(UUID.randomUUID().toString());
+        kKarte.setKundeUUID(kundeUUID);
 
         DataHandler.insertKKarte(kKarte);
         return Response
