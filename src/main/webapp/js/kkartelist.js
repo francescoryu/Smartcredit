@@ -1,13 +1,13 @@
 /**
- * view-controller for bookshelf.html
- * @author Marcel Suter
+ * view-controller für KKartelist.html
+ * @author Francesco Ryu
  */
 document.addEventListener("DOMContentLoaded", () => {
     readKKarte();
 });
 
 /**
- * reads all books
+ * Liest alle KKarten
  */
 function readKKarte() {
     fetch("./resource/kkarte/list")
@@ -28,8 +28,8 @@ function readKKarte() {
 }
 
 /**
- * shows the booklist as a table
- * @param data  the books
+ * Tabellarische Darstellung für die KKarten
+ * @param data
  */
 function showKKarteList(data) {
     let tBody = document.getElementById("kkartelist");
@@ -59,7 +59,7 @@ function showKKarteList(data) {
 }
 
 /**
- * redirects to the edit-form
+ * link für kkarteedit.html
  * @param event  the click-event
  */
 function editKKarte(event) {
@@ -69,7 +69,7 @@ function editKKarte(event) {
 }
 
 /**
- * deletes a book
+ * löscht eine KKarte
  * @param event  the click-event
  */
 function deleteKKarte(event) {
