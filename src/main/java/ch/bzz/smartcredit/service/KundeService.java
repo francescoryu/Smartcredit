@@ -150,15 +150,30 @@ public class KundeService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateKunde(
-            @Valid @BeanParam Kunde kunde
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("kundeUUID") String kundeUUID,
+
+            @NotEmpty
+            @Size(min = 2, max = 40)
+            @FormParam("vorName") String vorName,
+
+            @NotEmpty
+            @Size(min = 2, max = 50)
+            @FormParam("nachName") String nachName,
+
+            @NotEmpty
+            @Min(value = 7)
+            @Max(value = 999)
+            @FormParam("alter") Integer alter
 
     ) {
         int httpStatus = 200;
-        Kunde oldKunde = DataHandler.readKundeByUUID(kunde.getKundeUUID());
-        if (oldKunde != null) {
-            oldKunde.setVorName(kunde.getVorName());
-            oldKunde.setNachName(kunde.getNachName());
-            oldKunde.setAlter(kunde.getAlter());
+        Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
+        if (kunde != null) {
+            kunde.setVorName(kunde.getVorName());
+            kunde.setNachName(kunde.getNachName());
+            kunde.setAlter(kunde.getAlter());
 
             DataHandler.updateKunde();
         } else {

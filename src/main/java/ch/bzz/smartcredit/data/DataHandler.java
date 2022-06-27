@@ -23,7 +23,7 @@ import java.util.List;
  */
 
 public class DataHandler {
-    private static List<KKarte> kKarteList;
+    private static List<KKarte> kkarteList;
     private static List<Kunde> kundeList;
     private static List<User> userList;
 
@@ -63,8 +63,8 @@ public class DataHandler {
         return getKundeList();
     }
 
-    public static void insertKKarte(KKarte kKarte) {
-        getKKarteList().add(kKarte);
+    public static void insertKKarte(KKarte kkarte) {
+        getKKarteList().add(kkarte);
         writeKKarteJSON();
     }
 
@@ -98,9 +98,9 @@ public class DataHandler {
     }
 
     public static boolean deleteKKarte(String kkarteUUID) {
-        KKarte kKarte = readKKarteByUUID(kkarteUUID);
-        if (kKarte != null) {
-            getKKarteList().remove(kKarte);
+        KKarte kkarte = readKKarteByUUID(kkarteUUID);
+        if (kkarte != null) {
+            getKKarteList().remove(kkarte);
             writeKKarteJSON();
             return true;
         } else {
@@ -161,8 +161,8 @@ public class DataHandler {
                     Paths.get(path)
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            KKarte[] kKartes = objectMapper.readValue(jsonData, KKarte[].class);
-            for (KKarte kKarte : kKartes) {
+            KKarte[] kkarten = objectMapper.readValue(jsonData, KKarte[].class);
+            for (KKarte kKarte : kkarten) {
                 getKKarteList().add(kKarte);
             }
         } catch (IOException ex) {
@@ -181,8 +181,8 @@ public class DataHandler {
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();
-            Kunde[] kundes = objectMapper.readValue(jsonData, Kunde[].class);
-            for (Kunde kunde : kundes) {
+            Kunde[] kunden = objectMapper.readValue(jsonData, Kunde[].class);
+            for (Kunde kunde : kunden) {
                 getKundeList().add(kunde);
             }
         } catch (IOException ex) {
@@ -197,20 +197,20 @@ public class DataHandler {
      * @return Wert der KKartenliste
      */
     private static List<KKarte> getKKarteList() {
-        if (kKarteList == null) {
+        if (kkarteList == null) {
             setKKarteList(new ArrayList<>());
             readKKarteJSON();
         }
-        return kKarteList;
+        return kkarteList;
     }
 
     /**
      * sets KKarteList
      *
-     * @param kKarteList den Wert
+     * @param kkarteList den Wert
      */
-    private static void setKKarteList(List<KKarte> kKarteList) {
-        DataHandler.kKarteList = kKarteList;
+    private static void setKKarteList(List<KKarte> kkarteList) {
+        DataHandler.kkarteList = kkarteList;
     }
 
 
