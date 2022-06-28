@@ -1,12 +1,6 @@
 $(document).ready(function () {
 
-
-
     $("#loginForm").submit(sendLogin);
-
-
-
-    $("#lo")
 });
 
 
@@ -21,7 +15,7 @@ function sendLogin(form) {
             data: $("#loginForm").serialize()
         })
         .done(function () {
-            window.location.href = "../select.html";
+            window.location.href = "/Smartcredit-1.0/select.html";
 
         })
         .fail(function (xhr, status, errorThrown) {

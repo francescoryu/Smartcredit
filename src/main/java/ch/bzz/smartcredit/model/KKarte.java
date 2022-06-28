@@ -45,6 +45,9 @@ public class KKarte {
     public void setKundeUUID(String kundeUUID) {
         setKunde(new Kunde());
         Kunde kunde = DataHandler.readKundeByUUID(kundeUUID);
+        getKunde().setKundeUUID(kundeUUID);
+        getKunde().setVorName(kunde.getVorName());
+        getKunde().setNachName(kunde.getNachName());
     }
 
 
