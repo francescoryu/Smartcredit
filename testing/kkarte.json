@@ -1,96 +1,41 @@
 [ {
-  "kundeUUID" : "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
-  "kkarteUUID" : "684593d3-f659-4d06-975e-03ed048416e9",
-  "institut" : "AAAAAAA",
-  "kartenNummer" : "6969-6969-6969-1234"
-}, {
-  "kundeUUID" : "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
-  "kkarteUUID" : "758cf65f-d6d1-42fc-864b-dd8a6548c8ed",
-  "institut" : "BBBBBBB",
-  "kartenNummer" : "6969-6969-6969-1234"
-}, {
-  "kundeUUID" : "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
-  "kkarteUUID" : "df17bdca-2770-4c9c-a6b9-71b311e3ded6",
-  "institut" : "CCCCC",
-  "kartenNummer" : "6969-6969-6969-1234"
-}, {
-  "kundeUUID" : "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
-  "kkarteUUID" : "4b0dfe3a-d88a-44fc-8c88-0d35f5dd0f03",
-  "institut" : "fdgddfg",
-  "kartenNummer" : "1523-1646-0239-1343"
-}, {
-  "kundeUUID" : "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
-  "kkarteUUID" : "c65933a0-9a6f-4d3a-8113-4b427b811a70",
-  "institut" : "fdgddfg",
-  "kartenNummer" : "1523-1646-0239-1343"
-}, {
-  "kundeUUID" : "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
-  "kkarteUUID" : "98ef4951-985b-40a0-8d7e-58ee8094bbd2",
-  "institut" : "fdgddfg",
-  "kartenNummer" : "1523-1646-0239-1343"
-}, {
-  "kundeUUID" : "3ae97670-a6ec-4991-bdf4-8e7ac7f5857a",
-  "kkarteUUID" : "2cace67e-4827-4c99-9cfb-40500296e4be",
-  "institut" : "fdgddfg",
-  "kartenNummer" : "1523-1646-0239-9999"
-}, {
   "kundeUUID" : "6ea9797e-f265-4c92-aea8-2356bb400883",
-  "kkarteUUID" : "3c6688fb-05ec-444d-91fa-cd1e1010b8d3",
-  "institut" : "Visa",
-  "kartenNummer" : "4444 6346 0239 9876"
-}, {
-  "kundeUUID" : "6ea9797e-f265-4c92-aea8-2356bb400883",
-  "kkarteUUID" : "863a4326-e352-4a22-af0f-833d852da25b",
-  "institut" : "American Express",
-  "kartenNummer" : "1111 2222 3333 4444"
-}, {
-  "kundeUUID" : "0c685528-7d71-4640-9d15-69b3c21cd1fa",
-  "kkarteUUID" : "b098fb68-16a5-4894-ba3f-8c30f3fb484c",
-  "institut" : "MAFIA GMBH",
-  "kartenNummer" : "0101 1010 0101 1010"
-}, {
-  "kundeUUID" : "0c685528-7d71-4640-9d15-69b3c21cd1fa",
-  "kkarteUUID" : "8c1deafc-da12-42fb-b3c9-098ebc6d55bf",
-  "institut" : "Astro Muster",
-  "kartenNummer" : "4444 3333 2222 1111"
-}, {
-  "kundeUUID" : "0c685528-7d71-4640-9d15-69b3c21cd1fa",
-  "kkarteUUID" : "c3a3d01d-9816-4a74-850a-a75e5c2a5dfc",
-  "institut" : "Testing Arena",
-  "kartenNummer" : "1234 4321 1234 4321"
-}, {
-  "kundeUUID" : null,
-  "kkarteUUID" : "45aa3dbc-a16f-45ed-a9bc-30623e35d14e",
-  "institut" : "TEST TEST",
-  "kartenNummer" : "9876 6789 9876 6789"
-}, {
-  "kundeUUID" : null,
-  "kkarteUUID" : "c613fcd7-b949-4dc5-9c69-f077c4bbaf09",
+  "kkarteUUID" : "cb79d5a1-4fcc-4f2f-acb7-eb5fd4f44a55",
   "institut" : "test",
   "kartenNummer" : "1111 1111 2222 2222"
 }, {
-  "kundeUUID" : null,
-  "kkarteUUID" : "7dfa5db4-fd58-4023-bfd7-bdda8e669547",
+  "kundeUUID" : "6ea9797e-f265-4c92-aea8-2356bb400883",
+  "kkarteUUID" : "85149216-088d-42b7-83d8-b5aba7a6ce4f",
   "institut" : "aaaa",
   "kartenNummer" : "1234 1234 1234 1234"
 }, {
-  "kundeUUID" : "0c685528-7d71-4640-9d15-69b3c21cd1fa",
-  "kkarteUUID" : "8cb63cdd-29f2-4da8-9ed0-fed144f5ca5e",
+  "kundeUUID" : "6ea9797e-f265-4c92-aea8-2356bb400883",
+  "kkarteUUID" : "a655ef73-2b36-4431-9622-884f9fdd4067",
   "institut" : "aaaa",
   "kartenNummer" : "1234 1234 1234 1234"
 }, {
-  "kundeUUID" : null,
-  "kkarteUUID" : "d1dfadc6-73ff-4343-bc97-243805389282",
+  "kundeUUID" : "43117b0d-d993-4056-8e03-b18a105f8da7",
+  "kkarteUUID" : "255d8f11-fc9f-4962-814b-c993538bd127",
+  "institut" : "IMS GmbH",
+  "kartenNummer" : "5648 3246 4759 5789"
+}, {
+  "kundeUUID" : "6ea9797e-f265-4c92-aea8-2356bb400883",
+  "kkarteUUID" : "1ef8fa3b-8d61-4987-a300-da1cb711384c",
   "institut" : "test",
   "kartenNummer" : "1111 1111 2222 2222"
 }, {
-  "kundeUUID" : null,
-  "kkarteUUID" : "58e1f1d3-06c6-4300-a03e-948523ac4ca1",
+  "kundeUUID" : "6ea9797e-f265-4c92-aea8-2356bb400883",
+  "kkarteUUID" : "fb0d372c-b880-4054-9d5c-80bc93b52cd2",
   "institut" : "aaaa",
   "kartenNummer" : "1234 1234 1234 1234"
 }, {
-  "kundeUUID" : null,
-  "kkarteUUID" : "2aefc8e5-1fe6-4eb4-b870-8ebd70a90971",
+  "kundeUUID" : "6ea9797e-f265-4c92-aea8-2356bb400883",
+  "kkarteUUID" : "75258242-5b1c-4aa3-8153-dafd09e16e95",
   "institut" : "aaaa",
   "kartenNummer" : "1234 1234 1234 1234"
+}, {
+  "kundeUUID" : "43117b0d-d993-4056-8e03-b18a105f8da7",
+  "kkarteUUID" : "884ae722-17d5-4e6e-bec4-735a44a710ca",
+  "institut" : "IMS GmbH",
+  "kartenNummer" : "5648 3246 4759 5789"
 } ]

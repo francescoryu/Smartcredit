@@ -131,28 +131,18 @@ public class KKarteService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateKKarte(
-            @NotEmpty
-            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @Valid @BeanParam KKarte kkarte,
             @FormParam("kkarteUUID") String kkarteUUID,
-
-            @NotEmpty
-            @Size(min=2, max=40)
             @FormParam("institut") String institut,
-
-            @NotEmpty
-            @Pattern(regexp = "([0-9]{4} ){3}[0-9]{4}")
             @FormParam("kartenNummer") String kartenNummer,
-
-            @NotEmpty
-            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("kundeUUID") String kundeUUID
     ) {
         int httpStatus = 200;
-        KKarte kKarte = DataHandler.readKKarteByUUID(kkarteUUID);
-        if (kKarte != null) {
-            kKarte.setInstitut(institut);
-            kKarte.setKartenNummer(kartenNummer);
-            kKarte.setKundeUUID(kundeUUID);
+        KKarte oldKKarte = DataHandler.readKKarteByUUID(kkarteUUID);
+        if (oldKKarte != null) {
+            oldKKarte.setInstitut(kkarte.getInstitut());
+            oldKKarte.setKartenNummer(kkarte.getKartenNummer());
+            oldKKarte.setKundeUUID(kkarte.getKundeUUID());
 
             DataHandler.updateKKarte();
         } else {
