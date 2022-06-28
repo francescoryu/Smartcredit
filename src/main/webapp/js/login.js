@@ -1,9 +1,12 @@
+/*
+ * Verwaltet login von User
+ * @author: Francesco Ryu
+ */
+
 $(document).ready(function () {
 
     $("#loginForm").submit(sendLogin);
 });
-
-
 
 function sendLogin(form) {
     form.preventDefault();

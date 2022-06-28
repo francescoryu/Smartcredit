@@ -1,6 +1,6 @@
 /**
- * view-controller for bookedit.html
- * @author Marcel Suter
+ * view-controller für kkarteedit.html
+ * @author Francesco Ryu
  */
 document.addEventListener("DOMContentLoaded", () => {
     readKunden();
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * saves the data of a book
+ * Speichert die Daten für eine Kreditkarte
  */
 function saveKKarte(event) {
     event.preventDefault();
@@ -51,7 +51,7 @@ function saveKKarte(event) {
 }
 
 /**
- * reads a book
+ * liest eine Kreditkarte
  */
 function readKKarte() {
     const kkarteUUID = getQueryParam("uuid");
@@ -73,8 +73,8 @@ function readKKarte() {
 }
 
 /**
- * show the data of a book
- * @param data  the book-data
+ * Zeigt die Daten einer Kreditkarte an
+ * @param data
  */
 function showKKarte(data) {
     document.getElementById("kkarteUUID").value = data.kkarteUUID;
@@ -84,7 +84,7 @@ function showKKarte(data) {
 }
 
 /**
- * reads all publishers as an array
+ * Liest alle Kunden
  */
 function readKunden() {
 
@@ -106,7 +106,7 @@ function readKunden() {
 }
 
 /**
- * shows all publishers as a dropdown
+ * Zeigt alle Kunden als Dropdown an
  * @param data
  */
 function showKunden(data) {

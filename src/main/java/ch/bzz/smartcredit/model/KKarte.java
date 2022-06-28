@@ -15,7 +15,6 @@ import javax.ws.rs.FormParam;
 public class KKarte {
 
     @JsonIgnore
-
     private Kunde kunde;
 
     @NotEmpty

@@ -1,6 +1,6 @@
 /**
- * view-controller for bookedit.html
- * @author Marcel Suter
+ * view-controller für kundeedit.html
+ * @author Francesco Ryu
  */
 document.addEventListener("DOMContentLoaded", () => {
     readKunde();
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * saves the data of a book
+ * Speichert die Daten für einen Kunden
  */
 function saveKunde(event) {
     event.preventDefault();
@@ -51,7 +51,7 @@ function saveKunde(event) {
 }
 
 /**
- * reads a book
+ * liest einen Kunden
  */
 function readKunde() {
     const kundeUUID = getQueryParam("uuid");
@@ -73,8 +73,8 @@ function readKunde() {
 }
 
 /**
- * show the data of a book
- * @param data  the book-data
+ * Zeigt die daten für einen Kunden an
+ * @param data
  */
 function showKunde(data) {
     document.getElementById("vorName").value = data.vorName;
@@ -83,43 +83,7 @@ function showKunde(data) {
 }
 
 /**
- * reads all publishers as an array
- */
-/*function readKunden() {
-
-    fetch("./resource/kunde/list")
-        .then(function (response) {
-            if (response.ok) {
-                return response;
-            } else {
-                console.log(response);
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            showKunden(data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}*/
-
-/**
- * shows all publishers as a dropdown
- * @param data
- */
-/*function showKunden(data) {
-    let dropdown = document.getElementById("kunde");
-    data.forEach(kunde => {
-        let option = document.createElement("option");
-        option.text = kunde.vorName + " " + kunde.nachName;
-        option.value = kunde.kundeUUID;
-        dropdown.add(option);
-    })
-}*/
-
-/**
- * redirects to the bookshelf
+ * Leitet den user zu der Kundenliste um
  * @param event  the click-event
  */
 function cancelEdit(event) {
