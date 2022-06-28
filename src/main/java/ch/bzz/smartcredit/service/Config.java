@@ -1,8 +1,5 @@
 package ch.bzz.smartcredit.service;
 
-import ch.bzz.smartcredit.service.KKarteService;
-import ch.bzz.smartcredit.service.TestService;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.io.FileInputStream;

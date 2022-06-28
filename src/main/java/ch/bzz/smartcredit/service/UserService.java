@@ -9,7 +9,7 @@ import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
 /**
- * services for authentication and authorization of users
+ * Service für authorization und authentication vom User
  */
 @Path("user")
 public class UserService {

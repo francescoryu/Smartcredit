@@ -1,13 +1,13 @@
 /**
- * view-controller for bookshelf.html
- * @author Marcel Suter
+ * view-controller für kundelist.html
+ * @author Francesco Ryu
  */
 document.addEventListener("DOMContentLoaded", () => {
     readKunde();
 });
 
 /**
- * reads all books
+ * liest alle Kunden
  */
 function readKunde() {
     fetch("./resource/kunde/list")
@@ -28,8 +28,8 @@ function readKunde() {
 }
 
 /**
- * shows the booklist as a table
- * @param data  the books
+ * zeigt die Kunden als Tabelle an
+ * @param data
  */
 function showKundeList(data) {
     let tBody = document.getElementById("kundelist");
@@ -59,7 +59,7 @@ function showKundeList(data) {
 }
 
 /**
- * redirects to the edit-form
+ * leitet den User zu kundeedit.html um
  * @param event  the click-event
  */
 function editKunde(event) {
@@ -69,7 +69,7 @@ function editKunde(event) {
 }
 
 /**
- * deletes a book
+ * löscht einen Kunden
  * @param event  the click-event
  */
 function deleteKunde(event) {

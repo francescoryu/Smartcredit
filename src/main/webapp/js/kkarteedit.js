@@ -120,7 +120,7 @@ function showKunden(data) {
 }
 
 /**
- * redirects to the bookshelf
+ * leitet dn User zu kkartelist.html um
  * @param event  the click-event
  */
 function cancelEdit(event) {

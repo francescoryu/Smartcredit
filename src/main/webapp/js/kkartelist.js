@@ -1,5 +1,5 @@
 /**
- * view-controller für KKartelist.html
+ * view-controller für kkartelist.html
  * @author Francesco Ryu
  */
 document.addEventListener("DOMContentLoaded", () => {
